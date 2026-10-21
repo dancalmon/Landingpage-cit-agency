@@ -157,7 +157,7 @@
     }
     if (j.formulario === 'embaixadores' && window.CITCadastro) {
       var raiz = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
-      CITCadastro.montar(corpoJanela, { raiz: raiz, eventoAtual: dados.nome });
+      CITCadastro.montar(corpoJanela, { raiz: raiz, eventoAtual: dados.nome, soEventoAtual: true });
     }
     var acoes = el('div', 'ev-janela-acoes');
     (j.acoes || []).forEach(function (ac) { acoes.appendChild(ligar(el('a', 'ev-botao', ac.texto), ac)); });

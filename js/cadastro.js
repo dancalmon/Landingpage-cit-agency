@@ -24,7 +24,8 @@ window.CITCadastro = (function () {
     return box;
   }
 
-  // container: onde o formulário entra; opcoes.raiz: caminho até a raiz do site; opcoes.eventoAtual: nome do evento da página
+  // container: onde o formulário entra; opcoes.raiz: caminho até a raiz do site; opcoes.eventoAtual: nome do evento da página;
+  // opcoes.soEventoAtual: mostra só o evento da página, em vez da lista do calendário
   function montar(container, opcoes) {
     opcoes = opcoes || {};
     var raiz = opcoes.raiz || '';
@@ -66,7 +67,16 @@ window.CITCadastro = (function () {
     form.appendChild(enviar);
     container.appendChild(form);
 
-    lerJSON(raiz + 'data/eventos.json').then(function (d) {
+    // Na página de um evento, o cadastro vale só para aquele evento
+    if (opcoes.soEventoAtual && opcoes.eventoAtual) {
+      grupo.querySelector('legend').textContent = 'Evento';
+      lista.textContent = '';
+      var lab = el('label', { class: 'cad-opcao', for: p + 'ev0' });
+      var c = el('input', { type: 'checkbox', id: p + 'ev0', value: opcoes.eventoAtual, checked: '', disabled: '' });
+      lab.appendChild(c);
+      lab.appendChild(el('span', null, opcoes.eventoAtual));
+      lista.appendChild(lab);
+    } else lerJSON(raiz + 'data/eventos.json').then(function (d) {
       var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
       lista.textContent = '';
       (d.eventos || []).map(function (ev) {
