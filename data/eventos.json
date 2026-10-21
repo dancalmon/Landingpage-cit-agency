@@ -1,0 +1,85 @@
+{
+  "_como_editar": [
+    "Este arquivo é o calendário da página-mãe. Cada bloco entre { } dentro de 'eventos' é um card.",
+    "Os cards aparecem sempre em ordem de data, não importa a ordem aqui. Eventos com data já passada somem sozinhos do site.",
+    "Campos de cada evento:",
+    "  nome      -> nome do evento, como aparece no card",
+    "  data      -> data no formato ANO-MÊS-DIA (ex.: 2026-10-31)",
+    "  horario   -> hora de início (ex.: 16h). Deixe \"\" se ainda não tiver",
+    "  local     -> nome do lugar e/ou cidade",
+    "  atracoes  -> nomes do line-up, entre aspas e separados por vírgula. Deixe [] se não tiver",
+    "  cor       -> cor do card: teal, laranja, magenta, coral ou azul (cores da marca)",
+    "  arte      -> caminho da imagem do card (ex.: assets/img/eventos/aura.jpg). Deixe \"\" para usar o card só com texto",
+    "  link      -> para onde o card leva: página do evento, landing externa ou link de ingresso. Deixe \"\" se ainda não tiver",
+    "  link_texto -> texto do botão (ex.: Comprar ingresso, Ver evento)"
+  ],
+  "eventos": [
+    {
+      "nome": "Departamento",
+      "data": "2026-10-31",
+      "horario": "22h",
+      "local": "Lagun, Vitória/ES",
+      "atracoes": [
+        "Jotta",
+        "Maykon",
+        "Caique Alves"
+      ],
+      "cor": "azul",
+      "arte": "assets/img/eventos/departamento.jpg",
+      "link": "",
+      "link_texto": "Comprar ingresso"
+    },
+    {
+      "nome": "Pagode do Xandó",
+      "data": "2026-11-14",
+      "horario": "20h",
+      "local": "Vitória/ES",
+      "atracoes": [
+        "Pagode do Xandó"
+      ],
+      "cor": "coral",
+      "arte": "assets/img/eventos/pagode-do-xando.jpg",
+      "link": "eventos/pagode-do-xando/index.html",
+      "link_texto": "Ver evento"
+    },
+    {
+      "nome": "Aura",
+      "data": "2026-12-19",
+      "horario": "",
+      "local": "[local]",
+      "atracoes": [
+        "Antdot",
+        "Unfazed",
+        "Camila Jun"
+      ],
+      "cor": "magenta",
+      "arte": "",
+      "link": "",
+      "link_texto": "Comprar ingresso"
+    },
+    {
+      "nome": "João Gomes em Itaúnas",
+      "data": "2027-01-03",
+      "horario": "16h",
+      "local": "Itaúnas, Conceição da Barra/ES",
+      "atracoes": [
+        "João Gomes"
+      ],
+      "cor": "laranja",
+      "arte": "assets/img/eventos/joao-gomes.jpg",
+      "link": "https://www.joaogomesitaunas.com.br/",
+      "link_texto": "Ver evento"
+    },
+    {
+      "nome": "Era Uma Vez",
+      "data": "2027-01-16",
+      "horario": "",
+      "local": "Guarapari/ES",
+      "atracoes": [],
+      "cor": "teal",
+      "arte": "",
+      "link": "",
+      "link_texto": "Ver evento"
+    }
+  ]
+}

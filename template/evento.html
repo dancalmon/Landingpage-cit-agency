@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- MODELO DE PÁGINA DE EVENTO
+     Para criar um evento novo:
+     1. Copie esta pasta inteira para eventos/<nome-do-evento>/ e renomeie este arquivo para index.html
+     2. Copie template/evento-exemplo.json para a mesma pasta com o nome evento.json e preencha
+     3. Coloque as imagens do evento na pasta img/
+     Só o <title> e a descrição abaixo precisam ser trocados aqui; o resto vem do evento.json. -->
+<title>Nome do Evento · CIT Agency</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Data, ingressos, aniversário, camarotes e informações do evento.">
+<link rel="icon" href="../../assets/img/avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../css/evento.css">
+</head>
+<body class="ev-carregando">
+
+<div class="ev-faixa" id="ev-faixa" aria-hidden="true"></div>
+
+<header class="ev-topo">
+  <a class="ev-voltar" href="../../index.html"><img src="../../assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593"></a>
+  <span class="ev-contagem" id="ev-contagem"></span>
+</header>
+
+<main>
+  <!-- Abertura: arte, nome, data e botão de ingresso -->
+  <section class="ev-abertura ev-largura">
+    <figure class="ev-arte"><img id="ev-arte" alt=""></figure>
+    <div class="ev-abertura-texto">
+      <p class="ev-quando" id="ev-quando"></p>
+      <h1 id="ev-nome"></h1>
+      <p class="ev-chamada" id="ev-chamada"></p>
+      <a class="ev-botao ev-botao-principal" id="ev-principal" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+
+  <!-- Atalhos com ícone; cada um abre uma janela -->
+  <section class="ev-largura" aria-label="Atalhos do evento">
+    <ul class="ev-atalhos" id="ev-atalhos"></ul>
+  </section>
+
+  <!-- Moldura de fotos e vídeos -->
+  <section class="ev-vibe" id="ev-vibe-secao" aria-labelledby="ev-vibe-titulo">
+    <h2 class="ev-largura" id="ev-vibe-titulo">A vibe</h2>
+    <div class="ev-moldura"><div class="ev-moldura-trilho" id="ev-galeria"></div></div>
+  </section>
+
+  <!-- Line-up -->
+  <section class="ev-largura ev-bloco" aria-labelledby="ev-lineup-titulo">
+    <h2 id="ev-lineup-titulo">Line-up</h2>
+    <ul class="ev-lineup" id="ev-lineup"></ul>
+  </section>
+
+  <!-- Informações gerais -->
+  <section class="ev-largura ev-bloco" aria-labelledby="ev-infos-titulo">
+    <h2 id="ev-infos-titulo">Informações</h2>
+    <dl class="ev-infos" id="ev-infos"></dl>
+  </section>
+
+  <!-- Dúvidas -->
+  <section class="ev-largura ev-bloco" aria-labelledby="ev-duvidas-titulo">
+    <h2 id="ev-duvidas-titulo">Dúvidas</h2>
+    <div class="ev-duvidas" id="ev-duvidas"></div>
+  </section>
+</main>
+
+<footer class="ev-rodape ev-largura">
+  <a class="ev-botao ev-botao-contorno" id="ev-rodape-concierge" target="_blank" rel="noopener">Falar com o concierge</a>
+  <p>Uma realização <a href="../../index.html">CIT Agency</a> · <a href="https://instagram.com/cit.agency" target="_blank" rel="noopener">@cit.agency</a></p>
+  <p>CIT AGENCY LTDA · CNPJ 55.477.306/0001-25</p>
+</footer>
+
+<!-- Janela que abre ao tocar num atalho -->
+<dialog class="ev-janela" id="ev-janela" aria-labelledby="ev-janela-titulo">
+  <form method="dialog" class="ev-janela-fechar"><button aria-label="Fechar">×</button></form>
+  <div class="ev-janela-corpo" id="ev-janela-corpo"></div>
+</dialog>
+
+<script src="../../js/evento.js"></script>
+</body>
+</html>

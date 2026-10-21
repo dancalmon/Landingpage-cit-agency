@@ -1,0 +1,40 @@
+{
+  "_como_editar": [
+    "Botões de acesso rápido da página-mãe, na ordem em que aparecem.",
+    "  titulo    -> texto grande do botão",
+    "  subtitulo -> linha menor embaixo (pode deixar \"\")",
+    "  link      -> para onde o botão leva (WhatsApp, formulário, site...). Deixe \"\" enquanto não tiver: o botão aparece como 'em breve'",
+    "  icone     -> whatsapp, maleta, grupo, marca ou instagram",
+    "  destaque  -> true deixa o botão colorido (use em um só)"
+  ],
+  "links": [
+    {
+      "titulo": "Concierge CIT",
+      "subtitulo": "Ingressos, camarotes e aniversários pelo WhatsApp",
+      "link": "https://wa.me/5527999973999?text=Ol%C3%A1!%20Quero%20falar%20com%20o%20concierge%20da%20CIT.",
+      "icone": "whatsapp",
+      "destaque": true
+    },
+    {
+      "titulo": "Trabalhe com a gente",
+      "subtitulo": "Vagas em produção, staff e operação",
+      "link": "",
+      "icone": "maleta",
+      "destaque": false
+    },
+    {
+      "titulo": "Faça parte do time",
+      "subtitulo": "Embaixadoras e RPs dos nossos eventos",
+      "link": "",
+      "icone": "grupo",
+      "destaque": false
+    },
+    {
+      "titulo": "Seja patrocinador",
+      "subtitulo": "Coloque sua marca dentro da experiência",
+      "link": "#marcas",
+      "icone": "marca",
+      "destaque": false
+    }
+  ]
+}

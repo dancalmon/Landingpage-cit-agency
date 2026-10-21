@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CIT Agency</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="CIT Agency: produtora de eventos e entretenimento de Vitória/ES. Próximos eventos, cases e contato comercial.">
+<meta name="theme-color" content="#13143A">
+<meta property="og:title" content="CIT Agency">
+<meta property="og:description" content="Doze eventos por ano. Nenhum igual ao outro.">
+<meta property="og:image" content="assets/img/avatar.png">
+<link rel="icon" href="assets/img/avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- 1. Primeira tela: acesso rápido + calendário, lado a lado no computador -->
+<header class="inicio">
+  <div class="inicio-fundo" aria-hidden="true">
+    <span class="bolha b1"></span><span class="bolha b2"></span><span class="bolha b3"></span><span class="bolha b4"></span>
+    <span class="grao"></span>
+  </div>
+  <div class="inicio-conteudo">
+    <div class="topo">
+      <img class="topo-logo" src="assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593">
+      <p class="topo-frase">Doze eventos por ano.<br>Nenhum igual ao outro.</p>
+    </div>
+
+    <div class="inicio-grade">
+      <!-- Acesso rápido (dados em data/links.json) -->
+      <section class="bloco" aria-labelledby="titulo-links">
+        <h1 class="rotulo" id="titulo-links">Acesso rápido</h1>
+        <ul class="links" id="lista-links"></ul>
+      </section>
+
+      <!-- Calendário (dados em data/eventos.json) -->
+      <section class="bloco" id="eventos" aria-labelledby="titulo-eventos">
+        <h2 class="rotulo" id="titulo-eventos">Próximos eventos</h2>
+        <ul class="calendario" id="lista-eventos">
+          <li class="eventos-aviso">Carregando o calendário…</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 2. Cases -->
+  <section class="faixa faixa-alt" id="cases" aria-labelledby="titulo-cases">
+    <div class="conteudo">
+      <div class="cabeca-secao">
+        <p class="rotulo">Cases</p>
+        <h2 id="titulo-cases">Eventos realizados</h2>
+      </div>
+
+      <div class="cases">
+        <article class="case cor-teal">
+          <a class="case-foto case-video" href="https://www.instagram.com/reel/Dad-Zzxp5YX/" target="_blank" rel="noopener" aria-label="Assistir o vídeo do Weekend Pedra Azul no Instagram">
+            <img src="assets/img/cases/weekend-pedra-azul.jpg" alt="Estrutura iluminada e público no Weekend Pedra Azul" loading="lazy" width="900" height="675">
+            <span class="case-play"><span class="case-play-icone" aria-hidden="true"></span>Assistir no Instagram</span>
+          </a>
+          <div class="case-corpo">
+            <h3>Weekend Pedra Azul</h3>
+            <dl class="case-numeros">
+              <div><dt>Público</dt><dd>3.000</dd></div>
+              <div><dt>Edições</dt><dd>4</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case cor-laranja">
+          <div class="case-foto"><span class="ph">[foto do Pontal Weekend]</span></div>
+          <div class="case-corpo">
+            <h3>Pontal Weekend</h3>
+            <dl class="case-numeros">
+              <div><dt>Público</dt><dd>1.500</dd></div>
+              <div><dt>Edições</dt><dd>4</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <div class="portfolio">
+        <div class="portfolio-grupo">
+          <p class="rotulo">Grandes eventos</p>
+          <ul>
+            <li><strong>Feijoada do Panda</strong></li>
+            <li><strong>João Gomes em Itaúnas</strong><span>Show em Conceição da Barra/ES</span></li>
+          </ul>
+        </div>
+        <div class="portfolio-grupo">
+          <p class="rotulo">Labels autorais</p>
+          <ul>
+            <li><strong>+5521</strong></li>
+            <li><strong>Day Night</strong><span>Música eletrônica, com artistas relevantes da cena. 3 edições.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Quem somos -->
+  <section class="faixa" id="quem-somos" aria-labelledby="titulo-quem">
+    <div class="conteudo sobre">
+      <div class="cabeca-secao">
+        <p class="rotulo">Quem somos</p>
+        <h2 id="titulo-quem">A gente faz o evento que o público vai querer contar depois</h2>
+        <p>A CIT Agency cria experiências para o público. São cerca de doze eventos por ano, de shows a festivais e labels de música eletrônica, e cada um nasce com produto e experiência diferentes. A base é Vitória, no Espírito Santo.</p>
+      </div>
+      <dl class="numeros">
+        <div><dt>eventos por ano</dt><dd>~12</dd></div>
+        <div><dt>público acumulado</dt><dd><span class="ph">[número]</span></dd></div>
+        <div><dt>edições de Day Night</dt><dd>3</dd></div>
+        <div><dt>base</dt><dd>ES</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 4. Para marcas e patrocinadores -->
+  <section class="faixa faixa-alt" id="marcas" aria-labelledby="titulo-marcas">
+    <div class="conteudo">
+      <div class="cabeca-secao">
+        <p class="rotulo">Para marcas e patrocinadores</p>
+        <h2 id="titulo-marcas">Sua marca dentro da experiência</h2>
+        <p>Formatos que a gente monta junto com cada patrocinador, sob medida para o evento e o público.</p>
+      </div>
+      <ul class="formatos">
+        <li><h3>Patrocínio de evento</h3><p>Sua marca assinando o evento, da comunicação ao palco.</p></li>
+        <li><h3>Ativação no local</h3><p>Um espaço da marca dentro do evento, pensado para o público interagir.</p></li>
+        <li><h3>Camarotes para clientes</h3><p>Experiência de relacionamento para convidados da sua empresa.</p></li>
+        <li><h3>Conteúdo e redes</h3><p>Presença da marca no conteúdo do evento antes, durante e depois.</p></li>
+      </ul>
+      <div class="parceiros">
+        <p class="rotulo">Já estiveram com a gente</p>
+        <p><span class="ph">[logos ou nomes dos parceiros anteriores]</span></p>
+      </div>
+      <div class="cta-comercial">
+        <a class="botao botao-cheio" href="https://wa.me/5527999973999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20falar%20sobre%20patroc%C3%ADnio." target="_blank" rel="noopener">Falar com o comercial no WhatsApp</a>
+        <p>ou escreva para <strong>citagency.vix@gmail.com</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contato e redes -->
+  <section class="faixa" id="contato" aria-labelledby="titulo-contato">
+    <div class="conteudo">
+      <div class="cabeca-secao">
+        <p class="rotulo">Contato</p>
+        <h2 id="titulo-contato">Fale com a CIT</h2>
+      </div>
+      <ul class="contatos">
+        <li>
+          <span class="rotulo">Instagram</span>
+          <a href="https://instagram.com/cit.agency" target="_blank" rel="noopener">@cit.agency</a>
+        </li>
+        <li>
+          <span class="rotulo">WhatsApp comercial</span>
+          <a href="https://wa.me/5527999973999" target="_blank" rel="noopener">(27) 99997-3999</a>
+        </li>
+        <li>
+          <span class="rotulo">E-mail</span>
+          <span class="selecionavel">citagency.vix@gmail.com</span>
+        </li>
+        <li>
+          <span class="rotulo">Escritório</span>
+          <span>R. Misael Pedreira da Silva, 98, Sala 603 Letra A<br>Santa Lúcia, Vitória/ES</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- 6. Rodapé -->
+<footer class="faixa rodape">
+  <div class="conteudo">
+    <img src="assets/img/avatar.png" alt="" width="44" height="44">
+    <p>CIT AGENCY LTDA · CNPJ 55.477.306/0001-25</p>
+    <p>Vitória/ES</p>
+  </div>
+</footer>
+
+<script src="js/calendario.js"></script>
+<script src="js/links.js"></script>
+</body>
+</html>

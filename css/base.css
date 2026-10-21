@@ -1,0 +1,123 @@
+/* CIT Agency — estilos compartilhados (página-mãe e páginas de evento).
+   Layout: uma coluna no celular; a partir de 760px, cards e blocos se abrem em grade.
+   Visual escuro fixo, sobre o azul da marca; cada evento ganha uma das cores da marca. */
+:root {
+  /* Cores da marca */
+  --teal: #33A9AB;
+  --laranja: #FFA746;
+  --magenta: #981F62;
+  --coral: #F96041;
+  --azul: #34377A;
+
+  /* Base */
+  --fundo: #13143A;
+  --superficie: #1C1E4C;
+  --linha: #2E3166;
+  --texto: #F4F3FB;
+  --texto-suave: #B3B4D6;
+  --destaque: var(--coral);
+
+  /* Tipografia */
+  --fonte-titulo: "Archivo", "Arial Black", system-ui, sans-serif;
+  --fonte-texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-dado: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --raio: 14px;
+  --largura: 1080px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; border-radius: 4px; }
+
+.faixa {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 56px;
+}
+.faixa > .conteudo { max-width: var(--largura); margin-inline: auto; display: grid; gap: 28px; }
+
+/* Faixa com as cinco cores da marca, usada como assinatura visual */
+.cores-marca {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--teal) 0 20%, var(--laranja) 20% 40%, var(--magenta) 40% 60%,
+    var(--coral) 60% 80%, var(--azul) 80% 100%);
+}
+
+/* Títulos */
+h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; text-wrap: balance; }
+h2 {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.rotulo {
+  font-family: var(--fonte-dado);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin: 0 0 10px;
+}
+.cabeca-secao { display: grid; gap: 4px; }
+.cabeca-secao p:not(.rotulo) { margin: 8px 0 0; color: var(--texto-suave); max-width: 60ch; }
+
+/* Botões */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1.5px solid var(--texto);
+  color: var(--texto);
+  background: transparent;
+  transition: background-color .2s, color .2s, transform .2s;
+}
+.botao:hover { background: var(--texto); color: var(--fundo); }
+.botao-cheio { background: var(--texto); color: var(--fundo); }
+.botao-cheio:hover { background: var(--laranja); border-color: var(--laranja); }
+
+/* Placeholder: marca visualmente o que ainda falta preencher */
+.ph {
+  font-family: var(--fonte-dado);
+  font-size: 0.85em;
+  color: var(--laranja);
+  background: rgba(255, 167, 70, 0.1);
+  border: 1px dashed rgba(255, 167, 70, 0.5);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+/* Rodapé (igual em todas as páginas) */
+.rodape { border-top: 1px solid var(--linha); padding-block: 28px; font-size: 0.85rem; color: var(--texto-suave); }
+.rodape .conteudo { gap: 6px; }
+.rodape p { margin: 0; }
+.rodape img { width: 44px; height: 44px; border-radius: 50%; margin-bottom: 8px; }
