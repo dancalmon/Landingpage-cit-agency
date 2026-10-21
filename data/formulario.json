@@ -1,0 +1,8 @@
+{
+  "_como_editar": [
+    "Configuração do formulário de embaixadores e RPs (o mesmo para todos os eventos).",
+    "endereco_envio -> o endereço do Apps Script da planilha (termina em /exec). Veja ferramentas/planilha-embaixadores.md",
+    "Enquanto estiver vazio, o formulário aparece normalmente mas avisa que o envio ainda não foi configurado."
+  ],
+  "endereco_envio": ""
+}

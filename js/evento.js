@@ -155,6 +155,10 @@
       j.itens.forEach(function (i) { ul.appendChild(el('li', null, i)); });
       corpoJanela.appendChild(ul);
     }
+    if (j.formulario === 'embaixadores' && window.CITCadastro) {
+      var raiz = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
+      CITCadastro.montar(corpoJanela, { raiz: raiz, eventoAtual: dados.nome });
+    }
     var acoes = el('div', 'ev-janela-acoes');
     (j.acoes || []).forEach(function (ac) { acoes.appendChild(ligar(el('a', 'ev-botao', ac.texto), ac)); });
     corpoJanela.appendChild(acoes);
