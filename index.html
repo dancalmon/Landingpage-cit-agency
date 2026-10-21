@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/cadastro.css">
 </head>
 <body>
 
@@ -185,6 +186,17 @@
   </div>
 </footer>
 
+<!-- Janela do formulário "Faça parte do time" -->
+<dialog class="janela" id="janela-cadastro" aria-labelledby="janela-cadastro-titulo">
+  <form method="dialog" class="janela-fechar"><button aria-label="Fechar">×</button></form>
+  <div class="janela-corpo">
+    <h2 id="janela-cadastro-titulo">Faça parte do time</h2>
+    <p>Quer divulgar os eventos da CIT e ganhar benefícios? Preencha seu cadastro. A gente analisa e entra em contato pelo WhatsApp.</p>
+    <div id="cadastro-mae"></div>
+  </div>
+</dialog>
+
+<script src="js/cadastro.js"></script>
 <script src="js/calendario.js"></script>
 <script src="js/links.js"></script>
 </body>

@@ -269,38 +269,3 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
 .ev-janela-itens li { padding: 12px 14px 12px 40px; border-radius: 12px; background: rgba(0, 0, 0, 0.18); position: relative; }
 .ev-janela-itens li::before { content: "★"; position: absolute; left: 14px; color: var(--ev-destaque); }
 .ev-janela-acoes { display: grid; gap: 10px; padding-top: 4px; }
-
-/* Formulário de cadastro (embaixadores e RPs) */
-.cad-form { display: grid; gap: 12px; }
-.cad-linha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.cad-campo { display: grid; gap: 4px; min-width: 0; }
-.cad-campo label, .cad-eventos legend { font-size: 0.85rem; font-weight: 700; }
-.cad-campo input {
-  width: 100%;
-  min-height: 46px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1.5px solid color-mix(in srgb, var(--ev-texto) 30%, transparent);
-  background: rgba(0, 0, 0, 0.2);
-  color: var(--ev-texto);
-  font: inherit;
-  font-size: 1rem;
-}
-.cad-campo input::placeholder { color: color-mix(in srgb, var(--ev-texto) 50%, transparent); }
-.cad-campo input:focus { outline: none; border-color: var(--ev-destaque); }
-.cad-dica { font-size: 0.75rem; opacity: 0.8; }
-.cad-eventos { border: 0; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
-.cad-eventos legend { padding: 0; margin-bottom: 8px; }
-.cad-opcoes { display: grid; gap: 6px; font-size: 0.95rem; }
-.cad-opcao, .cad-aceite { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
-.cad-opcao { padding: 10px 12px; border-radius: 12px; background: rgba(0, 0, 0, 0.18); }
-.cad-opcao input, .cad-aceite input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--ev-destaque); flex: none; }
-.cad-aceite { font-size: 0.85rem; opacity: 0.95; }
-.cad-isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-.cad-erro { margin: 0; padding: 10px 12px; border-radius: 12px; background: rgba(0, 0, 0, 0.3); color: var(--ev-destaque); font-weight: 700; font-size: 0.9rem; }
-.cad-enviar { width: 100%; border: 0; cursor: pointer; }
-.cad-enviar:disabled { opacity: 0.7; cursor: wait; }
-.cad-ok { margin: 0; padding: 18px; border-radius: 14px; background: rgba(0, 0, 0, 0.2); font-weight: 700; text-align: center; }
-@media (max-width: 360px) { .cad-linha { grid-template-columns: 1fr; } }
-.cad-campo input[aria-invalid="true"] { border-color: var(--ev-destaque); background: rgba(0, 0, 0, 0.35); }
-.cad-aceite:has(input[aria-invalid="true"]) span { color: var(--ev-destaque); font-weight: 700; }

@@ -227,3 +227,51 @@ a.cal-linha:hover { border-color: var(--cor); transform: translateY(-1px); }
 .contatos .rotulo { margin: 0; }
 .contatos a { text-decoration-color: var(--coral); text-underline-offset: 4px; }
 .selecionavel { user-select: all; }
+
+/* Janela do formulário "Faça parte do time" (sobe de baixo no celular) */
+.janela {
+  --ev-texto: var(--texto);
+  --ev-destaque: var(--laranja);
+  --ev-botao: var(--texto);
+  --ev-botao-texto: var(--fundo);
+  --ev-fonte-titulo: var(--fonte-titulo);
+  width: 100%;
+  max-width: 520px;
+  max-height: 88svh;
+  margin: auto auto 0;
+  padding: 0;
+  border: 0;
+  border-radius: 24px 24px 0 0;
+  background: var(--superficie);
+  color: var(--texto);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.janela[open] { animation: sobe .28s cubic-bezier(.2,.8,.2,1); }
+.janela::backdrop { background: rgba(5, 6, 20, 0.7); }
+@keyframes sobe { from { transform: translateY(40px); opacity: 0.001; } }
+@media (min-width: 700px) { .janela { margin: auto; border-radius: 24px; } }
+@media (prefers-reduced-motion: reduce) { .janela[open] { animation: none; } }
+.janela-fechar { position: sticky; top: 0; display: flex; justify-content: flex-end; height: 0; z-index: 1; }
+.janela-fechar button {
+  margin: 12px 12px 0 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--texto);
+  color: var(--fundo);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.janela-corpo { display: grid; gap: 14px; padding: 22px 20px calc(24px + env(safe-area-inset-bottom, 0px)); }
+.janela-corpo h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 115;
+  text-transform: uppercase;
+  padding-right: 48px;
+}
+.janela-corpo > p { margin: 0; color: var(--texto-suave); }
+.janela .cad-enviar { font-weight: 800; }
