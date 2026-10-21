@@ -65,7 +65,7 @@
   "botoes": [
     {
       "id": "ingresso",
-      "ativo": true,
+      "ativo": false,
       "icone": "ingresso",
       "titulo": "Ingresso sem taxa",
       "subtitulo": "Compre direto com a gente",
