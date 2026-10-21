@@ -96,7 +96,7 @@
     var data = lerData(d.data);
     var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
     if (data) {
-      $('ev-quando').textContent = DIAS[data.getDay()] + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '');
+      $('ev-quando').textContent = DIAS[data.getDay()] + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '') + (d.local ? ' · ' + d.local : '');
       var dias = Math.round((data - hoje) / 86400000);
       $('ev-contagem').textContent = dias > 1 ? 'Faltam ' + dias + ' dias' : dias === 1 ? 'É amanhã' : dias === 0 ? 'É hoje' : 'Evento realizado';
     }

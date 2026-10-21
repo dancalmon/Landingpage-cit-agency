@@ -28,17 +28,15 @@
     "infos -> quadro de informações gerais (rótulo e valor)",
     "duvidas -> perguntas frequentes"
   ],
-
   "nome": "Pagode do Xandó",
   "chamada": "VC Feliz com o PDX",
   "subchamada": "A felicidade que nasceu em Caraíva vem pra Vix.",
   "data": "2026-11-14",
   "horario": "20h",
-  "local": "[local]",
+  "local": "Navista",
   "cidade": "Vitória/ES",
   "arte": "img/key-visual.jpg",
   "whatsapp": "5527999973999",
-
   "visual": {
     "cores": {
       "fundo": "#FF006E",
@@ -47,18 +45,23 @@
       "botao": "#FFBE0B",
       "botao_texto": "#3A0A63",
       "cartao": "#8338EC",
-      "faixa": ["#FF006E", "#F28D52", "#FFBE0B", "#54E3B5", "#8338EC", "#F23EE5"]
+      "faixa": [
+        "#FF006E",
+        "#F28D52",
+        "#FFBE0B",
+        "#54E3B5",
+        "#8338EC",
+        "#F23EE5"
+      ]
     },
     "fonte_titulo": "Titan One",
     "fonte_texto": "Baloo 2"
   },
-
   "botao_principal": {
     "texto": "Comprar ingresso sem taxa",
     "tipo": "whatsapp",
     "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11)."
   },
-
   "botoes": [
     {
       "id": "ingresso",
@@ -70,9 +73,16 @@
         "imagem": "",
         "titulo": "Ingresso sem taxa",
         "texto": "Comprando direto com o concierge da CIT, você não paga taxa de serviço.",
-        "itens": ["[lote atual e valor]", "[formas de pagamento]"],
+        "itens": [
+          "[lote atual e valor]",
+          "[formas de pagamento]"
+        ],
         "acoes": [
-          { "texto": "Comprar no WhatsApp", "tipo": "whatsapp", "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11)." }
+          {
+            "texto": "Comprar no WhatsApp",
+            "tipo": "whatsapp",
+            "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11)."
+          }
         ]
       }
     },
@@ -86,9 +96,17 @@
         "imagem": "",
         "titulo": "Aniversário no Pagode do Xandó",
         "texto": "Faz aniversário perto do dia 14/11? Comemore com a gente.",
-        "itens": ["[benefício 1]", "[benefício 2]", "[benefício 3]"],
+        "itens": [
+          "[benefício 1]",
+          "[benefício 2]",
+          "[benefício 3]"
+        ],
         "acoes": [
-          { "texto": "Quero comemorar", "tipo": "whatsapp", "mensagem": "Oi! Quero comemorar meu aniversário no Pagode do Xandó (14/11)." }
+          {
+            "texto": "Quero comemorar",
+            "tipo": "whatsapp",
+            "mensagem": "Oi! Quero comemorar meu aniversário no Pagode do Xandó (14/11)."
+          }
         ]
       }
     },
@@ -102,9 +120,16 @@
         "imagem": "",
         "titulo": "Lounges e camarotes",
         "texto": "Garanta um espaço exclusivo para você e sua turma.",
-        "itens": ["[opção, capacidade e valor]", "[opção, capacidade e valor]"],
+        "itens": [
+          "[opção, capacidade e valor]",
+          "[opção, capacidade e valor]"
+        ],
         "acoes": [
-          { "texto": "Reservar no WhatsApp", "tipo": "whatsapp", "mensagem": "Oi! Quero reservar um lounge/camarote no Pagode do Xandó (14/11)." }
+          {
+            "texto": "Reservar no WhatsApp",
+            "tipo": "whatsapp",
+            "mensagem": "Oi! Quero reservar um lounge/camarote no Pagode do Xandó (14/11)."
+          }
         ]
       }
     },
@@ -118,9 +143,15 @@
         "imagem": "",
         "titulo": "Embaixadoras e RPs",
         "texto": "Quer divulgar o Pagode do Xandó e ganhar benefícios? Preencha o formulário que a gente entra em contato.",
-        "itens": ["[benefício para embaixadoras]"],
+        "itens": [
+          "[benefício para embaixadoras]"
+        ],
         "acoes": [
-          { "texto": "Preencher formulário", "tipo": "link", "link": "" }
+          {
+            "texto": "Preencher formulário",
+            "tipo": "link",
+            "link": ""
+          }
         ]
       }
     },
@@ -131,30 +162,76 @@
       "titulo": "Fale com o concierge",
       "subtitulo": "Tire qualquer dúvida no WhatsApp",
       "janela": null,
-      "acao_direta": { "tipo": "whatsapp", "mensagem": "Oi! Tenho uma dúvida sobre o Pagode do Xandó (14/11)." }
+      "acao_direta": {
+        "tipo": "whatsapp",
+        "mensagem": "Oi! Tenho uma dúvida sobre o Pagode do Xandó (14/11)."
+      }
     }
   ],
-
   "galeria": [
-    { "foto": "" }, { "foto": "" }, { "foto": "" }, { "foto": "" }, { "foto": "" }, { "foto": "" }
+    {
+      "foto": ""
+    },
+    {
+      "foto": ""
+    },
+    {
+      "foto": ""
+    },
+    {
+      "foto": ""
+    },
+    {
+      "foto": ""
+    },
+    {
+      "foto": ""
+    }
   ],
-
   "atracoes": [
-    { "nome": "Pagode do Xandó", "foto": "" }
+    {
+      "nome": "Pagode do Xandó",
+      "foto": ""
+    }
   ],
-
   "infos": [
-    { "rotulo": "Data", "valor": "Sábado, 14 de novembro" },
-    { "rotulo": "Abertura", "valor": "20h" },
-    { "rotulo": "Local", "valor": "[local], Vitória/ES" },
-    { "rotulo": "Classificação", "valor": "[classificação]" },
-    { "rotulo": "Dress code", "valor": "[dress code]" },
-    { "rotulo": "Estacionamento", "valor": "[estacionamento]" }
+    {
+      "rotulo": "Data",
+      "valor": "Sábado, 14 de novembro"
+    },
+    {
+      "rotulo": "Abertura",
+      "valor": "20h"
+    },
+    {
+      "rotulo": "Local",
+      "valor": "Navista, Vitória/ES"
+    },
+    {
+      "rotulo": "Classificação",
+      "valor": "18 anos"
+    },
+    {
+      "rotulo": "Dress code",
+      "valor": "[dress code]"
+    },
+    {
+      "rotulo": "Estacionamento",
+      "valor": "[estacionamento]"
+    }
   ],
-
   "duvidas": [
-    { "pergunta": "Como compro ingresso sem taxa?", "resposta": "Pelo WhatsApp do concierge da CIT, no botão 'Ingresso sem taxa' desta página." },
-    { "pergunta": "Menores de idade podem entrar?", "resposta": "[resposta]" },
-    { "pergunta": "Posso transferir meu ingresso?", "resposta": "[resposta]" }
+    {
+      "pergunta": "Como compro ingresso sem taxa?",
+      "resposta": "Pelo WhatsApp do concierge da CIT, no botão 'Ingresso sem taxa' desta página."
+    },
+    {
+      "pergunta": "Menores de idade podem entrar?",
+      "resposta": "Não. O evento é para maiores de 18 anos."
+    },
+    {
+      "pergunta": "Posso transferir meu ingresso?",
+      "resposta": "[resposta]"
+    }
   ]
 }
