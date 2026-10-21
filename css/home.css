@@ -1,20 +1,23 @@
 /* Estilos só da página-mãe */
 
-.faixa-alt { background: var(--superficie); }
+/* Conteúdo acima do fundo decorado */
+body { position: relative; }
+.inicio, main, .rodape { position: relative; z-index: 1; }
+.faixa-alt { background: rgba(255, 255, 255, 0.025); border-block: 1px solid rgba(255, 255, 255, 0.06); }
 
 /* Primeira tela: logo pequeno, acesso rápido e calendário */
-.inicio { position: relative; overflow: hidden; isolation: isolate; background: var(--fundo); }
-.inicio-fundo { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.inicio { overflow: hidden; }
 
-/* Grade fina, mais visível no centro */
+/* Fundo da página inteira */
+.fundo-pagina { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+/* Grade fina */
 .grade {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
   background-size: 30px 30px;
-  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 85%);
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 85%);
 }
 
 /* Gotas cromadas (metal líquido) */
@@ -38,21 +41,35 @@
   border-radius: 50%;
   background: inherit;
 }
-.g1 { --t: 120px; top: -34px; left: 18%; --d: 1px; --v: 11s; }
-.g2 { --t: 62px; top: 96px; left: -22px; --v: 8s; }
-.g3 { --t: 46px; top: 46%; right: -10px; --d: 2px; --v: 10s; }
-.g4 { --t: 96px; bottom: 6%; left: 30%; --d: 3px; --v: 13s; opacity: .8; }
-.g5 { --t: 26px; top: 30%; left: 46%; --v: 7s; }
-.g6 { --t: 70px; top: -10px; right: 12%; --v: 12s; }
+/* Posições ao longo da página (top em % da altura total) */
+.g1  { --t: 120px; top: -34px; left: 18%; --d: 1px; --v: 11s; }
+.g2  { --t: 62px;  top: 96px;  left: -22px; --v: 8s; }
+.g3  { --t: 46px;  top: 7%;    right: -10px; --d: 2px; --v: 10s; }
+.g4  { --t: 96px;  top: 12%;   left: 34%; --d: 3px; --v: 13s; opacity: .7; }
+.g5  { --t: 26px;  top: 5%;    left: 48%; --v: 7s; }
+.g6  { --t: 70px;  top: -10px; right: 12%; --v: 12s; }
+.g7  { --t: 54px;  top: 22%;   right: 4%; --v: 9s; }
+.g8  { --t: 110px; top: 31%;   left: -40px; --d: 2px; --v: 14s; opacity: .8; }
+.g9  { --t: 64px;  top: 44%;   right: -18px; --v: 10s; }
+.g10 { --t: 30px;  top: 52%;   left: 12%; --v: 8s; }
+.g11 { --t: 90px;  top: 63%;   right: 22%; --d: 3px; --v: 12s; opacity: .6; }
+.g12 { --t: 76px;  top: 73%;   left: -20px; --v: 11s; }
+.g13 { --t: 40px;  top: 84%;   right: 8%; --v: 9s; }
+.g14 { --t: 100px; top: 94%;   left: 40%; --d: 2px; --v: 13s; opacity: .7; }
 @keyframes flutua { to { transform: translate(6px, 14px) rotate(8deg); } }
 
 /* Anéis "WELCOME · CIT AGENCY" */
-.anel { position: absolute; width: 150px; height: 150px; color: rgba(255, 255, 255, 0.55); animation: gira 40s linear infinite; }
+.anel { position: absolute; width: 150px; height: 150px; color: rgba(255, 255, 255, 0.5); animation: gira 40s linear infinite; }
 .anel text { font-family: var(--fonte-titulo); font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; fill: currentColor; }
 .anel circle { fill: none; stroke: currentColor; stroke-width: 1.2; }
 .a1 { top: -70px; left: 40%; }
-.a2 { bottom: -60px; left: -50px; animation-direction: reverse; }
-.a3 { top: 38%; right: -80px; }
+.a2 { top: 16%; left: -60px; animation-direction: reverse; }
+.a3 { top: 9%; right: -80px; }
+.a4 { top: 28%; right: -50px; animation-direction: reverse; }
+.a5 { top: 40%; left: -70px; }
+.a6 { top: 57%; right: -60px; }
+.a7 { top: 76%; left: -50px; animation-direction: reverse; }
+.a8 { bottom: -60px; right: 18%; }
 @keyframes gira { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .gota, .anel { animation: none; } }
 
