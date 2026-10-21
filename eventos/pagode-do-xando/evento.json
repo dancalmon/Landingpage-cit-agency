@@ -90,22 +90,23 @@
       "id": "aniversario",
       "ativo": true,
       "icone": "bolo",
-      "titulo": "Comemore seu aniversário",
-      "subtitulo": "Benefícios para aniversariantes",
+      "titulo": "Comemore seu niver no PDX",
+      "subtitulo": "Aniversariante pode sair VIP",
       "janela": {
         "imagem": "",
-        "titulo": "Aniversário no Pagode do Xandó",
-        "texto": "Faz aniversário perto do dia 14/11? Comemore com a gente.",
+        "titulo": "Comemore seu niver no PDX Vix",
+        "texto": "Se o seu aniversário é próximo do dia 14 de novembro, temos benefícios especiais pra você comemorar com a gente no PDX Vix! 🎉",
         "itens": [
-          "[benefício 1]",
-          "[benefício 2]",
-          "[benefício 3]"
+          "Criamos um link exclusivo de vendas pra você.",
+          "Com 5 vendas, o aniversariante já é VIP no evento!",
+          "Com 10 vendas, um acompanhante também é VIP!",
+          "Com 15 vendas, você ganha R$100 de consumação na festa."
         ],
         "acoes": [
           {
-            "texto": "Quero comemorar",
+            "texto": "Quero meu link de aniversariante",
             "tipo": "whatsapp",
-            "mensagem": "Oi! Quero comemorar meu aniversário no Pagode do Xandó (14/11)."
+            "mensagem": "Oi! Meu aniversário é perto do dia 14/11 e quero meu link exclusivo de aniversariante do PDX Vix."
           }
         ]
       }
