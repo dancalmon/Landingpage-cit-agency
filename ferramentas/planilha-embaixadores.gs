@@ -1,5 +1,9 @@
 // Recebe os cadastros de embaixadores e RPs do site e grava na aba "Cadastros" da planilha.
+// A cada cadastro, também manda um e-mail com os dados da pessoa para EMAIL_AVISO.
 // Como instalar: veja ferramentas/planilha-embaixadores.md
+
+// E-mail que recebe o aviso de cada cadastro (pode colocar mais de um, separados por vírgula)
+var EMAIL_AVISO = 'citagency.vix@gmail.com';
 
 var COLUNAS = [
   ['Data do cadastro', null],
@@ -38,5 +42,22 @@ function doPost(e) {
   } finally {
     trava.releaseLock();
   }
+  avisarPorEmail(p, planilha.getUrl());
   return ContentService.createTextOutput('ok');
+}
+
+function avisarPorEmail(p, linkPlanilha) {
+  if (!EMAIL_AVISO) return;
+  var linhas = COLUNAS.filter(function (c) { return c[1]; }).map(function (c) {
+    return c[0] + ': ' + (p[c[1]] || '-');
+  });
+  var whats = String(p.whatsapp || '').replace(/\D/g, '');
+  if (whats && whats.length <= 11) whats = '55' + whats;
+  MailApp.sendEmail({
+    to: EMAIL_AVISO,
+    subject: 'Novo cadastro de embaixador(a): ' + (p.nome || 'sem nome') + ' · ' + (p.eventos || ''),
+    body: 'Chegou um novo cadastro pelo site da CIT.\n\n' + linhas.join('\n') +
+      (whats ? '\n\nChamar no WhatsApp: https://wa.me/' + whats : '') +
+      '\n\nTodos os cadastros: ' + linkPlanilha
+  });
 }
