@@ -1,6 +1,7 @@
 /* CIT Agency — estilos compartilhados (página-mãe e páginas de evento).
    Layout: uma coluna no celular; a partir de 760px, cards e blocos se abrem em grade.
-   Visual escuro fixo, sobre o azul da marca; cada evento ganha uma das cores da marca. */
+   Visual "It's about experience": preto com grade fina, branco e cromado. As cores da marca
+   ficam guardadas abaixo para uso pontual; cada página de evento tem a própria identidade. */
 :root {
   /* Cores da marca */
   --teal: #33A9AB;
@@ -10,12 +11,13 @@
   --azul: #34377A;
 
   /* Base */
-  --fundo: #13143A;
-  --superficie: #1C1E4C;
-  --linha: #2E3166;
-  --texto: #F4F3FB;
-  --texto-suave: #B3B4D6;
-  --destaque: var(--coral);
+  --fundo: #050505;
+  --superficie: #111111;
+  --linha: #2A2A2A;
+  --texto: #F5F5F5;
+  --texto-suave: #9E9E9E;
+  --destaque: #FFFFFF;
+  --cromo: linear-gradient(135deg, #FFFFFF 0%, #B8B8B8 28%, #5A5A5A 52%, #D9D9D9 74%, #8C8C8C 100%);
 
   /* Tipografia */
   --fonte-titulo: "Archivo", "Arial Black", system-ui, sans-serif;
@@ -42,7 +44,7 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--texto); outline-offset: 3px; border-radius: 4px; }
 
 .faixa {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
@@ -64,10 +66,9 @@ h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; text-wrap: balance; }
 h2 {
   font-size: clamp(1.75rem, 6vw, 2.75rem);
   font-weight: 800;
-  font-stretch: 125%;
-  font-variation-settings: "wdth" 125;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-variation-settings: "wdth" 100;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 .rotulo {
@@ -103,7 +104,7 @@ h2 {
 }
 .botao:hover { background: var(--texto); color: var(--fundo); }
 .botao-cheio { background: var(--texto); color: var(--fundo); }
-.botao-cheio:hover { background: var(--laranja); border-color: var(--laranja); }
+.botao-cheio:hover { background: #BDBDBD; border-color: #BDBDBD; }
 
 /* Placeholder: marca visualmente o que ainda falta preencher */
 .ph {
