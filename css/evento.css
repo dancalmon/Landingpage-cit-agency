@@ -174,9 +174,9 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
 @keyframes desliza { to { transform: translateX(-50%); } }
 .ev-quadro {
   margin: 0;
-  width: 200px;
-  aspect-ratio: 4 / 5;
-  padding: 8px 8px 28px;
+  width: 260px;
+  aspect-ratio: 4 / 3.4;
+  padding: 8px 8px 30px;
   background: var(--ev-texto);
   border-radius: 4px;
   transform: rotate(var(--giro, 0deg));
@@ -185,7 +185,7 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
 }
 .ev-quadro img, .ev-quadro video { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
 .ev-quadro.is-vazio { display: grid; place-items: center; color: var(--ev-fundo); }
-@media (min-width: 860px) { .ev-quadro { width: 240px; } }
+@media (min-width: 860px) { .ev-quadro { width: 340px; } }
 @media (prefers-reduced-motion: reduce) {
   .ev-moldura { overflow-x: auto; }
   .ev-moldura-trilho { animation: none; }

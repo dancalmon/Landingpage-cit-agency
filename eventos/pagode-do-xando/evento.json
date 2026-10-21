@@ -171,22 +171,24 @@
   ],
   "galeria": [
     {
-      "foto": ""
+      "foto": "img/vibe-1.jpg",
+      "legenda": "Roda de samba no palco do PDX"
     },
     {
-      "foto": ""
+      "foto": "img/vibe-2.jpg",
+      "legenda": "Pista lotada no Pagode do Xandó"
     },
     {
-      "foto": ""
+      "foto": "img/vibe-3.jpg",
+      "legenda": "Galera reunida no PDX"
     },
     {
-      "foto": ""
+      "foto": "img/vibe-4.jpg",
+      "legenda": "Palco do Pagode do Xandó"
     },
     {
-      "foto": ""
-    },
-    {
-      "foto": ""
+      "foto": "img/vibe-5.jpg",
+      "legenda": "Painel Você feliz em Caraíva"
     }
   ],
   "atracoes": [
