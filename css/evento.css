@@ -17,6 +17,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -103,6 +104,8 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
   border-radius: 999px;
 }
 .ev-abertura h1 { font-size: clamp(2.6rem, 13vw, 5rem); color: var(--ev-destaque); text-transform: uppercase; }
+.ev-logo { width: min(72%, 300px); height: auto; margin-inline: auto; }
+@media (min-width: 860px) { .ev-logo { margin-inline: 0; } }
 .ev-chamada { margin: 0; max-width: 34ch; font-size: 1.1rem; }
 @media (min-width: 860px) {
   .ev-abertura { grid-template-columns: 380px 1fr; align-items: center; gap: 56px; padding-block: 40px 56px; }

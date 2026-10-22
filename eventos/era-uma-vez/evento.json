@@ -1,0 +1,171 @@
+{
+  "_como_editar": [
+    "Este arquivo é a página inteira do evento. Mude os textos, cores, imagens e links aqui; o código não precisa ser tocado.",
+    "Imagens deste evento ficam na pasta img/ ao lado deste arquivo.",
+    "Qualquer texto entre [colchetes] aparece na página marcado em laranja, como lembrete do que falta preencher.",
+    "",
+    "nome, chamada, data (ANO-MÊS-DIA), horario, local, cidade -> informações principais do topo",
+    "arte -> key visual do evento (formato retrato, ex.: 1080x1350)",
+    "whatsapp -> número do concierge com DDI e DDD, só números. Usado por todo botão do tipo 'whatsapp'",
+    "",
+    "visual -> identidade do evento:",
+    "  cores.fundo / cores.texto / cores.destaque / cores.botao / cores.botao_texto / cores.cartao",
+    "  cores.faixa -> lista de cores da faixa colorida do topo",
+    "  fonte_titulo / fonte_texto -> nomes de fontes do Google Fonts (fonts.google.com)",
+    "",
+    "botao_principal -> o botão grande do topo",
+    "",
+    "botoes -> os atalhos com ícone. Cada um abre uma janela com a informação completa.",
+    "  id        -> nome curto sem espaço; vira o link direto (ex.: .../pagode-do-xando/#aniversario abre a janela do aniversário)",
+    "  ativo     -> false esconde o botão (ex.: evento sem camarote)",
+    "  icone     -> ingresso, bolo, taca, estrela, conversa ou info",
+    "  titulo, subtitulo -> textos do botão",
+    "  janela    -> o que aparece ao tocar: imagem (opcional), titulo, texto, itens (lista de benefícios) e acoes (botões)",
+    "  acoes     -> cada botão da janela: tipo 'whatsapp' (usa 'mensagem' como texto pronto) ou tipo 'link' (usa 'link')",
+    "  formulario -> 'embaixadores' mostra o formulário de cadastro dentro da janela (as respostas vão para a planilha da CIT)",
+    "",
+    "galeria -> fotos e vídeos da moldura 'a vibe'. Use { \"foto\": \"img/x.jpg\" } ou { \"video\": \"img/x.mp4\", \"capa\": \"img/x.jpg\" }",
+    "atracoes -> line-up: nome e foto (opcional)",
+    "infos -> quadro de informações gerais (rótulo e valor)",
+    "duvidas -> perguntas frequentes"
+  ],
+  "nome": "Era Uma Vez",
+  "logo": "img/logo-vertical.png",
+  "chamada": "Jardim Onírico",
+  "subchamada": "",
+  "data": "2027-01-16",
+  "horario": "22h",
+  "local": "Secret Venue",
+  "cidade": "Guarapari/ES",
+  "arte": "img/key-visual.jpg",
+  "whatsapp": "5527999973999",
+  "visual": {
+    "cores": {
+      "fundo": "#2D85C4",
+      "texto": "#FBF1DC",
+      "destaque": "#FDC856",
+      "botao": "#FDC856",
+      "botao_texto": "#0B3F7A",
+      "cartao": "#0146AB",
+      "faixa": [
+        "#0146AB",
+        "#094E2F",
+        "#F0D8B4",
+        "#FDC856",
+        "#EF8474",
+        "#C0202C"
+      ]
+    },
+    "fonte_titulo": "Cinzel",
+    "fonte_texto": "Lora"
+  },
+  "botao_principal": {
+    "texto": "Quero meu ingresso",
+    "tipo": "whatsapp",
+    "mensagem": "Oi! Quero saber dos ingressos do Era Uma Vez (16/01, Guarapari)."
+  },
+  "botoes": [
+    {
+      "id": "aniversario",
+      "ativo": false,
+      "icone": "bolo",
+      "titulo": "Comemore seu aniversário",
+      "subtitulo": "Benefícios para aniversariantes",
+      "janela": {
+        "imagem": "",
+        "titulo": "Aniversário no Era Uma Vez",
+        "texto": "",
+        "itens": [
+          "[benefícios]"
+        ],
+        "acoes": [
+          {
+            "texto": "Quero comemorar",
+            "tipo": "whatsapp",
+            "mensagem": "Oi! Quero comemorar meu aniversário no Era Uma Vez (16/01)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "camarotes",
+      "ativo": false,
+      "icone": "taca",
+      "titulo": "Lounges e camarotes",
+      "subtitulo": "Reserve com o concierge",
+      "janela": {
+        "imagem": "",
+        "titulo": "Lounges e camarotes",
+        "texto": "",
+        "itens": [
+          "[opções]"
+        ],
+        "acoes": [
+          {
+            "texto": "Reservar no WhatsApp",
+            "tipo": "whatsapp",
+            "mensagem": "Oi! Quero reservar um lounge/camarote no Era Uma Vez (16/01)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "embaixadoras",
+      "ativo": true,
+      "icone": "estrela",
+      "titulo": "Faça parte do time",
+      "subtitulo": "Seja embaixadora ou RP",
+      "janela": {
+        "imagem": "",
+        "titulo": "Faça parte do time",
+        "texto": "Quer divulgar o Era Uma Vez e ganhar benefícios? Preencha seu cadastro. A equipe da CIT analisa e entra em contato pelo WhatsApp.",
+        "itens": [],
+        "acoes": [],
+        "formulario": "embaixadores"
+      }
+    },
+    {
+      "id": "concierge",
+      "ativo": true,
+      "icone": "conversa",
+      "titulo": "Fale com o concierge",
+      "subtitulo": "Tire qualquer dúvida no WhatsApp",
+      "janela": null,
+      "acao_direta": {
+        "tipo": "whatsapp",
+        "mensagem": "Oi! Tenho uma dúvida sobre o Era Uma Vez (16/01)."
+      }
+    }
+  ],
+  "galeria": [],
+  "atracoes": [
+    {
+      "nome": "Line-up em breve",
+      "foto": ""
+    }
+  ],
+  "infos": [
+    {
+      "rotulo": "Data",
+      "valor": "Sábado, 16 de janeiro de 2027"
+    },
+    {
+      "rotulo": "Abertura dos portões",
+      "valor": "22h"
+    },
+    {
+      "rotulo": "Local",
+      "valor": "Secret Venue, Guarapari/ES"
+    }
+  ],
+  "duvidas": [
+    {
+      "pergunta": "Onde vai ser?",
+      "resposta": "Em Guarapari/ES, num local secreto que será revelado em breve."
+    },
+    {
+      "pergunta": "Como compro meu ingresso?",
+      "resposta": "Pelo WhatsApp do concierge da CIT, no botão 'Quero meu ingresso' desta página."
+    }
+  ]
+}

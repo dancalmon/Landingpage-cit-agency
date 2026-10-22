@@ -73,12 +73,12 @@
     {
       "nome": "Era Uma Vez",
       "data": "2027-01-16",
-      "horario": "",
-      "local": "Guarapari/ES",
+      "horario": "22h",
+      "local": "Secret Venue, Guarapari/ES",
       "atracoes": [],
       "cor": "teal",
-      "arte": "",
-      "link": "",
+      "arte": "assets/img/eventos/era-uma-vez.jpg",
+      "link": "eventos/era-uma-vez/index.html",
       "link_texto": "Ver evento"
     }
   ]

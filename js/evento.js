@@ -100,7 +100,15 @@
       var dias = Math.round((data - hoje) / 86400000);
       $('ev-contagem').textContent = dias > 1 ? 'Faltam ' + dias + ' dias' : dias === 1 ? 'É amanhã' : dias === 0 ? 'É hoje' : 'Evento realizado';
     }
-    $('ev-nome').textContent = d.nome;
+    var nome = $('ev-nome');
+    if (d.logo) {
+      var logo = el('img', 'ev-logo');
+      logo.src = d.logo;
+      logo.alt = d.nome;
+      nome.appendChild(logo);
+    } else {
+      nome.textContent = d.nome;
+    }
     var chamada = $('ev-chamada');
     preencher(chamada, [d.chamada, d.subchamada].filter(Boolean).join('. ').replace(/\.\./g, '.'));
     var arte = $('ev-arte');
