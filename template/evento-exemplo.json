@@ -14,7 +14,7 @@
     "  cores.faixa -> lista de cores da faixa colorida do topo",
     "  fonte_titulo / fonte_texto -> nomes de fontes do Google Fonts (fonts.google.com)",
     "",
-    "botao_principal -> o botão grande do topo",
+    "botao_principal -> o botão grande do topo. texto_curto é o texto do botão da barra fixa que aparece no celular ao rolar a página",
     "",
     "botoes -> os atalhos com ícone. Cada um abre uma janela com a informação completa.",
     "  id        -> nome curto sem espaço; vira o link direto (ex.: .../pagode-do-xando/#aniversario abre a janela do aniversário)",
@@ -61,7 +61,8 @@
   "botao_principal": {
     "texto": "Comprar ingresso sem taxa",
     "tipo": "whatsapp",
-    "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11)."
+    "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11).",
+    "texto_curto": "Comprar ingresso"
   },
   "botoes": [
     {

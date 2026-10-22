@@ -231,6 +231,35 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
 .ev-rodape .ev-botao { margin-bottom: 14px; }
 .ev-rodape p { margin: 0; opacity: 0.85; }
 
+/* Barra fixa de ingresso (só no celular) */
+.ev-barra {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: var(--ev-cartao);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(110%);
+  transition: transform .25s ease;
+}
+.ev-barra.is-visivel { transform: none; }
+.ev-barra-texto { display: grid; min-width: 0; flex: 1; line-height: 1.2; }
+.ev-barra-texto strong { font-family: var(--ev-fonte-titulo); font-weight: 400; font-size: 1.05rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ev-barra-texto span { font-family: var(--ev-fonte-dado); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ev-barra-botao { min-height: 46px; padding: 10px 20px; font-size: 0.95rem; box-shadow: none; flex: none; }
+.ev-barra-botao:hover { box-shadow: none; }
+body.tem-barra .ev-rodape { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 860px) {
+  .ev-barra { display: none; }
+  body.tem-barra .ev-rodape { padding-bottom: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { .ev-barra { transition: none; } }
+
 /* Janela (no celular, sobe de baixo) */
 .ev-janela {
   width: 100%;

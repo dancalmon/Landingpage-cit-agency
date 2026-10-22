@@ -121,6 +121,44 @@
     ligar($('ev-rodape-concierge'), { tipo: 'whatsapp', mensagem: 'Oi! Tenho uma dúvida sobre o ' + d.nome + '.' });
   }
 
+  // Barra fixa de ingresso no celular: aparece quando o botão principal sai da tela
+  function montarBarra(d) {
+    var bp = d.botao_principal || {};
+    var barra = el('div', 'ev-barra');
+    barra.setAttribute('aria-hidden', 'true');
+    var txt = el('div', 'ev-barra-texto');
+    txt.appendChild(el('strong', null, d.nome));
+    txt.appendChild(el('span', null, $('ev-quando').textContent));
+    barra.appendChild(txt);
+    var a = el('a', 'ev-botao ev-barra-botao', bp.texto_curto || 'Comprar ingresso');
+    a.tabIndex = -1;
+    ligar(a, bp);
+    barra.appendChild(a);
+    document.body.appendChild(barra);
+    document.body.classList.add('tem-barra');
+
+    var principal = $('ev-principal');
+    var principalVisivel = true;
+    function atualizar() {
+      var mostrar = !principalVisivel && !(janela && janela.open);
+      barra.classList.toggle('is-visivel', mostrar);
+      barra.setAttribute('aria-hidden', mostrar ? 'false' : 'true');
+      a.tabIndex = mostrar ? 0 : -1;
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entradas) {
+        principalVisivel = entradas[0].isIntersecting || entradas[0].boundingClientRect.top > 0;
+        atualizar();
+      }).observe(principal);
+    } else {
+      principalVisivel = false;
+      atualizar();
+    }
+    janela.addEventListener('close', atualizar);
+    return atualizar;
+  }
+  var atualizarBarra = function () {};
+
   function montarAtalhos(lista) {
     var ul = $('ev-atalhos');
     lista.filter(function (b) { return b.ativo !== false; }).forEach(function (b) {
@@ -172,6 +210,7 @@
     corpoJanela.appendChild(acoes);
 
     if (janela.showModal) { if (!janela.open) janela.showModal(); } else { janela.setAttribute('open', ''); }
+    atualizarBarra();
     try { history.replaceState(null, '', '#' + b.id); } catch (e) {}
   }
 
@@ -251,6 +290,7 @@
       montarLineup(d.atracoes);
       montarInfos(d.infos);
       montarDuvidas(d.duvidas);
+      atualizarBarra = montarBarra(d);
       document.body.classList.remove('ev-carregando');
       // Link direto para uma janela, ex.: .../#aniversario
       var alvo = (location.hash || '').slice(1);
