@@ -296,7 +296,7 @@
     });
   }
 
-  fetch('evento.json', { cache: 'no-cache' })
+  fetch('evento.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) {
       dados = d;

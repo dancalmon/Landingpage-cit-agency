@@ -95,7 +95,7 @@
     lista.appendChild(el('li', 'eventos-aviso', texto));
   }
 
-  fetch('data/eventos.json', { cache: 'no-cache' })
+  fetch('data/eventos.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (dados) {
       var hoje = new Date();

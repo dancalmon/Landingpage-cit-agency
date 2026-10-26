@@ -12,7 +12,7 @@ window.CITCadastro = (function () {
   }
 
   function lerJSON(url) {
-    return fetch(url, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    return fetch(url, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
   }
 
   function campo(id, rotulo, attrs, dica) {
