@@ -30,6 +30,7 @@ body {
 }
 body.ev-carregando main, body.ev-carregando .ev-rodape { opacity: 0.001; }
 main, .ev-rodape { transition: opacity .3s; }
+main { overflow-x: clip; }
 img, video { max-width: 100%; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--ev-destaque); outline-offset: 3px; border-radius: 6px; }
@@ -92,6 +93,29 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
 }
 .ev-arte img { width: 100%; height: auto; border-radius: 2px; }
+.ev-arte { position: relative; }
+.ev-arte .ev-selo {
+  position: absolute;
+  right: -9%;
+  bottom: -9%;
+  width: 40%;
+  height: auto;
+  transform: rotate(2.5deg);
+  animation: ev-gira 30s linear infinite;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.25));
+}
+@keyframes ev-gira { to { transform: rotate(362.5deg); } }
+@media (prefers-reduced-motion: reduce) { .ev-selo { animation: none; } }
+
+/* Símbolo do evento antes dos títulos das seções */
+.tem-simbolo .ev-bloco h2, .tem-simbolo .ev-vibe h2 { display: flex; align-items: center; gap: 12px; }
+.tem-simbolo .ev-bloco h2::before, .tem-simbolo .ev-vibe h2::before {
+  content: "";
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  background: var(--ev-simbolo) center / contain no-repeat;
+}
 .ev-abertura-texto { display: grid; gap: 12px; text-align: center; justify-items: center; }
 .ev-quando {
   margin: 0;

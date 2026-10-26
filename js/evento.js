@@ -114,6 +114,23 @@
     var arte = $('ev-arte');
     if (d.arte) { arte.src = d.arte; arte.alt = 'Arte do evento ' + d.nome; } else { arte.parentNode.hidden = true; }
 
+    // Selo girando sobre a arte, símbolo decorativo nos títulos e ícone da aba (todos opcionais)
+    if (d.selo && d.arte) {
+      var selo = el('img', 'ev-selo');
+      selo.src = d.selo;
+      selo.alt = '';
+      arte.parentNode.appendChild(selo);
+    }
+    if (d.simbolo) {
+      // Endereço completo: dentro do CSS, um caminho relativo seria lido a partir da pasta css/
+      document.documentElement.style.setProperty('--ev-simbolo', 'url("' + new URL(d.simbolo, location.href).href + '")');
+      document.body.classList.add('tem-simbolo');
+    }
+    if (d.icone) {
+      var icone = document.querySelector('link[rel="icon"]');
+      if (icone) icone.href = d.icone;
+    }
+
     var bp = d.botao_principal || {};
     var principal = $('ev-principal');
     principal.textContent = bp.texto || 'Comprar ingresso';
