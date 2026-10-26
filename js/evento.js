@@ -96,12 +96,14 @@
     var data = lerData(d.data);
     var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
     if (data) {
-      $('ev-quando').textContent = DIAS[data.getDay()] + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '') + (d.local ? ' · ' + d.local : '');
+      $('ev-quando').textContent = DIAS[data.getDay()].slice(0, 3) + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '');
       var dias = Math.round((data - hoje) / 86400000);
       $('ev-contagem').textContent = dias > 1 ? 'Faltam ' + dias + ' dias' : dias === 1 ? 'É amanhã' : dias === 0 ? 'É hoje' : 'Evento realizado';
     }
+    $('ev-onde').textContent = [d.local, d.cidade].filter(Boolean).join(' · ');
     var nome = $('ev-nome');
-    if (d.logo) {
+    // A arte já traz o logo: o logo só aparece quando o evento não tem arte
+    if (d.logo && !d.arte) {
       var logo = el('img', 'ev-logo');
       logo.src = d.logo;
       logo.alt = d.nome;
@@ -266,9 +268,20 @@
     itens.forEach(function (it, i) { trilho.appendChild(quadro(it, i, true)); });
   }
 
-  function montarLineup(lista) {
+  function montarLineup(lista, titulo) {
+    lista = lista || [];
+    if (!lista.length) return;
+    // Em destaque no topo: nomes das atrações ou estilos
+    var toca = $('ev-toca');
+    $('ev-toca-titulo').textContent = titulo || 'Line-up';
+    lista.forEach(function (a) { $('ev-toca-lista').appendChild(el('li', null, a.nome)); });
+    toca.hidden = false;
+    // Seção com fotos só quando alguma atração tem foto
+    if (!lista.some(function (a) { return a.foto; })) return;
+    $('ev-lineup-secao').hidden = false;
+    if (titulo) $('ev-lineup-titulo').textContent = titulo;
     var ul = $('ev-lineup');
-    (lista || []).forEach(function (a) {
+    lista.forEach(function (a) {
       var li = el('li', 'ev-artista');
       if (a.foto) { var img = el('img'); img.src = a.foto; img.alt = ''; img.loading = 'lazy'; li.appendChild(img); }
       li.appendChild(el('strong', null, a.nome));
@@ -304,8 +317,7 @@
       montarTopo(d);
       montarAtalhos(d.botoes || []);
       montarGaleria(d.galeria);
-      if (d.titulo_atracoes) $('ev-lineup-titulo').textContent = d.titulo_atracoes;
-      montarLineup(d.atracoes);
+      montarLineup(d.atracoes, d.titulo_atracoes);
       montarInfos(d.infos);
       montarDuvidas(d.duvidas);
       atualizarBarra = montarBarra(d);

@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="../../css/evento.css?v=202610262336">
-<link rel="stylesheet" href="../../css/cadastro.css?v=202610262336">
+<link rel="stylesheet" href="../../css/evento.css?v=202610262340">
+<link rel="stylesheet" href="../../css/cadastro.css?v=202610262340">
 <meta name="ev-raiz" content="../../">
 </head>
 <body class="ev-carregando">
@@ -30,14 +30,21 @@
 </header>
 
 <main>
-  <!-- Abertura: arte, nome, data e botão de ingresso -->
+  <!-- Abertura: card com arte e informações, botão de ingresso e o que toca -->
   <section class="ev-abertura ev-largura">
-    <figure class="ev-arte"><img id="ev-arte" alt=""></figure>
-    <div class="ev-abertura-texto">
-      <p class="ev-quando" id="ev-quando"></p>
-      <h1 id="ev-nome"></h1>
-      <p class="ev-chamada" id="ev-chamada"></p>
-      <a class="ev-botao ev-botao-principal" id="ev-principal" target="_blank" rel="noopener"></a>
+    <div class="ev-card">
+      <figure class="ev-arte"><img id="ev-arte" alt=""></figure>
+      <div class="ev-abertura-texto">
+        <p class="ev-quando" id="ev-quando"></p>
+        <h1 id="ev-nome"></h1>
+        <p class="ev-onde" id="ev-onde"></p>
+        <p class="ev-chamada" id="ev-chamada"></p>
+      </div>
+    </div>
+    <a class="ev-botao ev-botao-principal" id="ev-principal" target="_blank" rel="noopener"></a>
+    <div class="ev-toca" id="ev-toca" hidden>
+      <h2 class="ev-toca-titulo" id="ev-toca-titulo">Line-up</h2>
+      <ul class="ev-toca-lista" id="ev-toca-lista"></ul>
     </div>
   </section>
 
@@ -52,8 +59,8 @@
     <div class="ev-moldura"><div class="ev-moldura-trilho" id="ev-galeria"></div></div>
   </section>
 
-  <!-- Line-up -->
-  <section class="ev-largura ev-bloco" aria-labelledby="ev-lineup-titulo">
+  <!-- Line-up com fotos (aparece só quando alguma atração tem foto) -->
+  <section class="ev-largura ev-bloco" id="ev-lineup-secao" aria-labelledby="ev-lineup-titulo" hidden>
     <h2 id="ev-lineup-titulo">Line-up</h2>
     <ul class="ev-lineup" id="ev-lineup"></ul>
   </section>
@@ -83,7 +90,7 @@
   <div class="ev-janela-corpo" id="ev-janela-corpo"></div>
 </dialog>
 
-<script src="../../js/cadastro.js?v=202610262336"></script>
-<script src="../../js/evento.js?v=202610262336"></script>
+<script src="../../js/cadastro.js?v=202610262340"></script>
+<script src="../../js/evento.js?v=202610262340"></script>
 </body>
 </html>
