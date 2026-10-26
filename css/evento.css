@@ -134,6 +134,31 @@ h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); text-transform: uppercase; }
 .ev-chamada:empty, .ev-onde:empty { display: none; }
 .ev-botao-principal { width: 100%; }
 
+/* Texto só para leitores de tela */
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Borda decorativa da abertura: moldura dourada com cantos de flores */
+.ev-abertura.tem-borda { position: relative; padding-block: 34px 46px; margin-block: 30px 56px; }
+.ev-abertura.tem-borda::before {
+  content: "";
+  position: absolute;
+  inset: 0 max(6px, env(safe-area-inset-right, 0px)) 0 max(6px, env(safe-area-inset-left, 0px));
+  border: 3px solid var(--ev-moldura, #C9A04A);
+  outline: 1px solid var(--ev-moldura, #C9A04A);
+  outline-offset: -9px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.ev-canto { position: absolute; height: auto; pointer-events: none; z-index: 2; }
+.ev-canto-sup { top: -44px; right: -10px; width: 96px; }
+.ev-canto-inf { bottom: -58px; left: -12px; width: 118px; }
+@media (min-width: 860px) {
+  .ev-abertura.tem-borda { padding: 56px 64px 64px; margin-block: 50px 80px; }
+  .ev-abertura.tem-borda::before { inset: 0; }
+  .ev-canto-sup { top: -70px; right: -46px; width: 170px; }
+  .ev-canto-inf { bottom: -86px; left: -54px; width: 210px; }
+}
+
 /* O que toca (estilos ou atrações em destaque, logo abaixo do botão) */
 .ev-toca { display: grid; gap: 8px; }
 .ev-toca-titulo { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px; }

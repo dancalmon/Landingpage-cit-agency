@@ -66,7 +66,7 @@
   function aplicarVisual(v) {
     var c = v.cores || {};
     var raiz = document.documentElement.style;
-    var mapa = { fundo: '--ev-fundo', texto: '--ev-texto', destaque: '--ev-destaque', botao: '--ev-botao', botao_texto: '--ev-botao-texto', cartao: '--ev-cartao' };
+    var mapa = { moldura: '--ev-moldura', fundo: '--ev-fundo', texto: '--ev-texto', destaque: '--ev-destaque', botao: '--ev-botao', botao_texto: '--ev-botao-texto', cartao: '--ev-cartao' };
     Object.keys(mapa).forEach(function (k) { if (c[k]) raiz.setProperty(mapa[k], c[k]); });
     var meta = document.querySelector('meta[name="theme-color"]') || document.head.appendChild(el('meta'));
     meta.name = 'theme-color';
@@ -128,6 +128,20 @@
       document.documentElement.style.setProperty('--ev-simbolo', 'url("' + new URL(d.simbolo, location.href).href + '")');
       document.body.classList.add('tem-simbolo');
     }
+    // Borda decorativa da abertura: moldura com cantos de flores (opcional)
+    if (d.borda) {
+      var abertura = document.querySelector('.ev-abertura');
+      abertura.classList.add('tem-borda');
+      [['sup', 'ev-canto-sup'], ['inf', 'ev-canto-inf']].forEach(function (c) {
+        if (!d.borda[c[0]]) return;
+        var img = el('img', 'ev-canto ' + c[1]);
+        img.src = d.borda[c[0]];
+        img.alt = '';
+        abertura.appendChild(img);
+      });
+    }
+    // Quando a arte já mostra o nome, o título fica só para leitores de tela
+    if (d.nome_na_arte && d.arte) $('ev-nome').classList.add('so-leitor');
     if (d.icone) {
       var icone = document.querySelector('link[rel="icon"]');
       if (icone) icone.href = d.icone;
