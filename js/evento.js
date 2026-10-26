@@ -304,6 +304,7 @@
       montarTopo(d);
       montarAtalhos(d.botoes || []);
       montarGaleria(d.galeria);
+      if (d.titulo_atracoes) $('ev-lineup-titulo').textContent = d.titulo_atracoes;
       montarLineup(d.atracoes);
       montarInfos(d.infos);
       montarDuvidas(d.duvidas);

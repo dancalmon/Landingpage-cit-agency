@@ -29,6 +29,7 @@
     "",
     "galeria -> fotos e vídeos da moldura 'a vibe'. Use { \"foto\": \"img/x.jpg\" } ou { \"video\": \"img/x.mp4\", \"capa\": \"img/x.jpg\" }",
     "atracoes -> line-up: nome e foto (opcional)",
+    "titulo_atracoes -> (opcional) troca o título da seção Line-up (ex.: O que toca?)",
     "infos -> quadro de informações gerais (rótulo e valor)",
     "duvidas -> perguntas frequentes"
   ],
