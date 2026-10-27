@@ -2,7 +2,9 @@
   "_como_editar": [
     "Configuração do formulário de embaixadores e RPs (o mesmo para todos os eventos).",
     "endereco_envio -> o endereço do Apps Script da planilha (termina em /exec). Veja ferramentas/planilha-embaixadores.md",
-    "Enquanto estiver vazio, o formulário aparece normalmente mas avisa que o envio ainda não foi configurado."
+    "Enquanto estiver vazio, o formulário aparece normalmente mas avisa que o envio ainda não foi configurado.",
+    "endereco_aniversario -> o endereço do Apps Script da planilha de aniversários (termina em /exec). Veja ferramentas/planilha-aniversarios.md"
   ],
-  "endereco_envio": "https://script.google.com/macros/s/AKfycbyltJZw3WOW-u9ykmaLsTLd09Ff36_ls2f4maW_a1MqDDrIAFwrnn1K4EvG8WdHEZ4z/exec"
+  "endereco_envio": "https://script.google.com/macros/s/AKfycbyltJZw3WOW-u9ykmaLsTLd09Ff36_ls2f4maW_a1MqDDrIAFwrnn1K4EvG8WdHEZ4z/exec",
+  "endereco_aniversario": ""
 }

@@ -35,7 +35,8 @@
     "atracoes -> line-up: nome e foto (opcional)",
     "titulo_atracoes -> (opcional) troca o título da seção Line-up (ex.: O que toca?)",
     "infos -> quadro de informações gerais (rótulo e valor)",
-    "duvidas -> perguntas frequentes"
+    "duvidas -> perguntas frequentes",
+    "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)"
   ],
   "nome": "Pagode do Xandó",
   "chamada": "VC Feliz com o PDX",
@@ -100,11 +101,11 @@
       "id": "aniversario",
       "ativo": true,
       "icone": "bolo",
-      "titulo": "Comemore seu niver no PDX",
-      "subtitulo": "Aniversariante pode sair VIP",
+      "titulo": "Comemore seu aniversário",
+      "subtitulo": "Cadastre-se e ganhe seu cupom",
       "janela": {
         "imagem": "",
-        "titulo": "Comemore seu niver no PDX Vix",
+        "titulo": "Comemore seu aniversário",
         "texto": "Se o seu aniversário é próximo do dia 14 de novembro, temos benefícios especiais pra você comemorar com a gente no PDX Vix! 🎉",
         "itens": [
           "Criamos um link exclusivo de vendas pra você.",
@@ -112,13 +113,8 @@
           "Com 10 vendas, um acompanhante também é VIP!",
           "Com 15 vendas, você ganha R$100 de consumação na festa."
         ],
-        "acoes": [
-          {
-            "texto": "Quero meu link de aniversariante",
-            "tipo": "whatsapp",
-            "mensagem": "Oi! Meu aniversário é perto do dia 14/11 e quero meu link exclusivo de aniversariante do PDX Vix."
-          }
-        ]
+        "acoes": [],
+        "formulario": "aniversario"
       }
     },
     {

@@ -234,6 +234,10 @@
       j.itens.forEach(function (i) { ul.appendChild(el('li', null, i)); });
       corpoJanela.appendChild(ul);
     }
+    if (j.formulario === 'aniversario' && window.CITAniversario) {
+      var raizNiver = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
+      CITAniversario.montar(corpoJanela, { raiz: raizNiver, evento: dados.nome });
+    }
     if (j.formulario === 'embaixadores' && window.CITCadastro) {
       var raiz = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
       CITCadastro.montar(corpoJanela, { raiz: raiz, eventoAtual: dados.nome, soEventoAtual: true });

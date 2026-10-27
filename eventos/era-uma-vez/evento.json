@@ -34,7 +34,8 @@
     "atracoes -> line-up: nome e foto (opcional)",
     "titulo_atracoes -> (opcional) troca o título da seção Line-up (ex.: O que toca?)",
     "infos -> quadro de informações gerais (rótulo e valor)",
-    "duvidas -> perguntas frequentes"
+    "duvidas -> perguntas frequentes",
+    "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)"
   ],
   "nome": "Era Uma Vez",
   "logo": "img/logo-vertical.png",
@@ -84,24 +85,17 @@
   "botoes": [
     {
       "id": "aniversario",
-      "ativo": false,
+      "ativo": true,
       "icone": "bolo",
       "titulo": "Comemore seu aniversário",
-      "subtitulo": "Benefícios para aniversariantes",
+      "subtitulo": "Cadastre-se e ganhe seu cupom",
       "janela": {
         "imagem": "",
-        "titulo": "Aniversário no Era Uma Vez",
-        "texto": "",
-        "itens": [
-          "[benefícios]"
-        ],
-        "acoes": [
-          {
-            "texto": "Quero comemorar",
-            "tipo": "whatsapp",
-            "mensagem": "Oi! Quero comemorar meu aniversário no Era Uma Vez (16/01)."
-          }
-        ]
+        "titulo": "Comemore seu aniversário",
+        "texto": "Faz aniversário perto do dia 16 de janeiro? Cadastre-se e receba seu cupom de aniversariante. Os benefícios deste evento serão divulgados em breve.",
+        "itens": [],
+        "acoes": [],
+        "formulario": "aniversario"
       }
     },
     {
