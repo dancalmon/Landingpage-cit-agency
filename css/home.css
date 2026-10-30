@@ -185,15 +185,28 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
 .eventos-aviso { color: var(--texto-suave); padding: 16px 0; }
 
 /* Cases */
-.cases { display: grid; gap: 16px; }
-@media (min-width: 640px) { .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cases { display: grid; gap: 12px; }
+/* Celular: cards lado a lado, deslizando para o lado */
+@media (max-width: 759px) {
+  .cases {
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .cases::-webkit-scrollbar { display: none; }
+  .case { scroll-snap-align: start; }
+}
+@media (min-width: 760px) { .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .case { border-radius: var(--raio); overflow: hidden; background: var(--fundo); border: 1px solid var(--linha); }
 .case-foto {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   max-width: 100%;
   display: grid;
   place-items: center;
-  padding: 16px;
+  padding: 12px;
   text-align: center;
   background:
     linear-gradient(160deg, color-mix(in srgb, var(--cor) 55%, transparent), transparent 70%),
@@ -204,12 +217,12 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
 .case-video:hover img { transform: scale(1.03); }
 .case-play {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
+  left: 10px;
+  bottom: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 14px 8px 8px;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
   border-radius: 999px;
   background: var(--texto);
   color: var(--fundo);
@@ -217,19 +230,19 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
   font-weight: 700;
   font-size: 0.85rem;
 }
-.case-play-icone { width: 28px; height: 28px; border-radius: 50%; background: var(--fundo); position: relative; }
+.case-play-icone { width: 24px; height: 24px; border-radius: 50%; background: var(--fundo); position: relative; }
 .case-play-icone::after {
   content: "";
   position: absolute;
-  left: 11px;
-  top: 8px;
+  left: 9px;
+  top: 6px;
   border-style: solid;
   border-width: 6px 0 6px 9px;
   border-color: transparent transparent transparent #fff;
 }
 .case-video:hover .case-play { background: #CFCFCF; }
-.case-corpo { padding: 18px; display: grid; gap: 14px; }
-.case h3 { font-size: 1.3rem; font-weight: 800; }
+.case-corpo { padding: 12px 14px 14px; display: grid; gap: 8px; align-content: start; }
+.case h3 { font-size: 1.05rem; font-weight: 800; }
 .case-numeros { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .case-numeros dt, .numeros dt {
   font-family: var(--fonte-dado);
@@ -238,7 +251,7 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
   text-transform: uppercase;
   color: var(--texto-suave);
 }
-.case-numeros dd { margin: 4px 0 0; font-family: var(--fonte-titulo); font-weight: 900; font-variation-settings: "wdth" 125; font-size: 1.9rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.case-numeros dd { margin: 4px 0 0; font-family: var(--fonte-titulo); font-weight: 900; font-variation-settings: "wdth" 125; font-size: 1.35rem; line-height: 1; font-variant-numeric: tabular-nums; }
 
 .portfolio { display: grid; gap: 24px; padding-top: 8px; }
 @media (min-width: 640px) { .portfolio { grid-template-columns: 1fr 1fr; } }
@@ -366,6 +379,5 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
 .servico-itens li { padding: 6px 12px; border-radius: 999px; background: var(--fundo); color: var(--texto); font-size: 0.85rem; font-weight: 600; }
 
 /* Case em largura total (arte horizontal) */
-@media (min-width: 640px) { .case-largo { grid-column: 1 / -1; } }
-.case-largo .case-foto { aspect-ratio: 1040 / 532; padding: 0; }
-.case-local { margin: 0; color: var(--texto-suave); font-size: 0.92rem; }
+.case-largo .case-video img { object-position: left center; }
+.case-local { margin: 0; color: var(--texto-suave); font-size: 0.85rem; }
