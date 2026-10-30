@@ -39,6 +39,13 @@
       "formulario": "embaixadores"
     },
     {
+      "titulo": "Leve a CIT para o seu evento",
+      "subtitulo": "Marketing, produção executiva, RP e ativação de marcas",
+      "link": "#servicos",
+      "icone": "maleta",
+      "destaque": false
+    },
+    {
       "titulo": "Seja patrocinador",
       "subtitulo": "Coloque sua marca dentro da experiência",
       "link": "#marcas",

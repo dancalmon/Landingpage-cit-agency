@@ -333,3 +333,34 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
 }
 .janela-corpo > p { margin: 0; color: var(--texto-suave); }
 .janela .cad-enviar { font-weight: 800; }
+
+/* Serviços da agência */
+.servicos { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: servico; }
+@media (min-width: 760px) { .servicos { grid-template-columns: repeat(3, minmax(0, 1fr)); } .servico-destaque { grid-column: 1 / -1; } }
+.servico {
+  counter-increment: servico;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 20px;
+  border-radius: var(--raio);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(16, 16, 16, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  min-width: 0;
+}
+.servico::before {
+  content: "0" counter(servico);
+  font-family: var(--fonte-dado);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--texto-suave);
+}
+.servico h3 { font-size: 1.2rem; font-weight: 800; line-height: 1.15; }
+.servico p { margin: 0; color: var(--texto-suave); font-size: 0.95rem; }
+.servico-destaque { background: var(--texto); border-color: var(--texto); }
+.servico-destaque::before, .servico-destaque p { color: #555555; }
+.servico-destaque h3 { color: var(--fundo); font-size: 1.45rem; }
+.servico-itens { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.servico-itens li { padding: 6px 12px; border-radius: 999px; background: var(--fundo); color: var(--texto); font-size: 0.85rem; font-weight: 600; }
