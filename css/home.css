@@ -364,3 +364,8 @@ a.cal-linha:hover { border-color: var(--texto); transform: translateY(-1px); }
 .servico-destaque h3 { color: var(--fundo); font-size: 1.45rem; }
 .servico-itens { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .servico-itens li { padding: 6px 12px; border-radius: 999px; background: var(--fundo); color: var(--texto); font-size: 0.85rem; font-weight: 600; }
+
+/* Case em largura total (arte horizontal) */
+@media (min-width: 640px) { .case-largo { grid-column: 1 / -1; } }
+.case-largo .case-foto { aspect-ratio: 1040 / 532; padding: 0; }
+.case-local { margin: 0; color: var(--texto-suave); font-size: 0.92rem; }
