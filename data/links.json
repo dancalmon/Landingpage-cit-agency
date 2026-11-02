@@ -24,13 +24,6 @@
       "destaque": false
     },
     {
-      "titulo": "Trabalhe com a gente",
-      "subtitulo": "Vagas em produção, staff e operação",
-      "link": "",
-      "icone": "maleta",
-      "destaque": false
-    },
-    {
       "titulo": "Faça parte do time",
       "subtitulo": "Seja embaixador ou comissário",
       "link": "",
@@ -43,13 +36,6 @@
       "subtitulo": "Marketing, produção executiva, RP e ativação de marcas",
       "link": "#servicos",
       "icone": "maleta",
-      "destaque": false
-    },
-    {
-      "titulo": "Seja patrocinador",
-      "subtitulo": "Coloque sua marca dentro da experiência",
-      "link": "#marcas",
-      "icone": "marca",
       "destaque": false
     }
   ]
