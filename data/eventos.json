@@ -46,14 +46,10 @@
       "nome": "Aura",
       "data": "2026-12-19",
       "horario": "",
-      "local": "[local]",
-      "atracoes": [
-        "Antdot",
-        "Unfazed",
-        "Camila Jun"
-      ],
+      "local": "Vitória/ES",
+      "atracoes": [],
       "cor": "magenta",
-      "arte": "",
+      "arte": "assets/img/eventos/aura.jpg",
       "link": "",
       "link_texto": "Comprar ingresso"
     },
