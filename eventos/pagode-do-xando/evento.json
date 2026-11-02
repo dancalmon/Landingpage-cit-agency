@@ -102,7 +102,7 @@
       "ativo": true,
       "icone": "bolo",
       "titulo": "Comemore seu aniversário",
-      "subtitulo": "Cadastre-se e ganhe seu cupom",
+      "subtitulo": "Veja os benefícios e cadastre-se",
       "janela": {
         "imagem": "",
         "titulo": "Comemore seu aniversário",
@@ -113,13 +113,18 @@
           "Com 10 vendas, um acompanhante também é VIP!",
           "Com 15 vendas, você ganha R$100 de consumação na festa."
         ],
-        "acoes": [],
-        "formulario": "aniversario"
+        "acoes": [
+          {
+            "texto": "Fazer meu cadastro de aniversariante",
+            "tipo": "link",
+            "link": "https://docs.google.com/forms/d/e/1FAIpQLSf6mYrRarsovKFdmeAgh-c0ynqTL7aK8jQasJfqoeAwxqruzQ/viewform"
+          }
+        ]
       }
     },
     {
       "id": "camarotes",
-      "ativo": true,
+      "ativo": false,
       "icone": "taca",
       "titulo": "Lounges e camarotes",
       "subtitulo": "Reserve com o concierge",
