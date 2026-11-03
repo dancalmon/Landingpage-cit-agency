@@ -68,10 +68,10 @@
     "fonte_texto": "Baloo 2"
   },
   "botao_principal": {
-    "texto": "Comprar ingresso sem taxa",
-    "tipo": "whatsapp",
-    "mensagem": "Oi! Quero comprar ingresso sem taxa para o Pagode do Xandó (14/11).",
-    "texto_curto": "Comprar sem taxa"
+    "texto": "Comprar ingresso",
+    "texto_curto": "Comprar ingresso",
+    "tipo": "link",
+    "link": "https://www.blueticket.com.br/evento/41974/?c=citagency"
   },
   "botoes": [
     {
@@ -229,8 +229,8 @@
   ],
   "duvidas": [
     {
-      "pergunta": "Como compro ingresso sem taxa?",
-      "resposta": "Pelo WhatsApp do concierge da CIT, no botão 'Ingresso sem taxa' desta página."
+      "pergunta": "Onde compro meu ingresso?",
+      "resposta": "Na Blueticket, pelo botão 'Comprar ingresso' desta página."
     },
     {
       "pergunta": "Menores de idade podem entrar?",
