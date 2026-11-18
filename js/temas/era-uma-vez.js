@@ -13,12 +13,13 @@
     return n;
   }
 
-  // ---------- Fundo: foto do jardim + varal de luzinhas ----------
+  // ---------- Fundo: céu de dia com nuvens (sem foto por trás do conteúdo) ----------
   var fundo = document.querySelector('.ev-tema-fundo');
-  if (fundo) {
-    fundo.innerHTML = '<span class="jardim-foto"></span><span class="jardim-nevoa"></span>';
-    fundo.style.setProperty('--foto', 'url("' + new URL('img/jardim-fundo.jpg', location.href).href + '")');
-  }
+  if (fundo) fundo.remove();
+  var ceu = el('div', 'ceu');
+  ceu.setAttribute('aria-hidden', 'true');
+  ceu.innerHTML = '<span class="nuvem n1"></span><span class="nuvem n2"></span><span class="nuvem n3"></span><span class="nuvem n4"></span><span class="sol-dia"></span>';
+  document.body.insertBefore(ceu, document.body.firstChild);
 
   var varal = el('div', 'varal');
   varal.setAttribute('aria-hidden', 'true');
@@ -32,7 +33,6 @@
     html += '<span class="lampada" style="left:' + x.toFixed(2) + '%;top:' + (y / 70 * 100).toFixed(2) + '%;--atraso:' + (i * 0.37).toFixed(2) + 's"></span>';
   }
   varal.innerHTML = html;
-  document.body.insertBefore(varal, document.body.firstChild.nextSibling);
 
   // ---------- Vaga-lumes e pétalas (canvas) ----------
   var tela = el('canvas', 'jardim-canvas');
@@ -77,6 +77,17 @@
   }
   var faiscas = [];
 
+  // 0 = dia (topo), 1 = noite (parte de baixo da página)
+  var noite = 0;
+  function medirNoite() {
+    var total = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    noite = Math.min(1, Math.max(0, (scrollY / total - 0.25) / 0.45));
+    document.documentElement.style.setProperty('--noite', noite.toFixed(3));
+  }
+  addEventListener('scroll', medirNoite, { passive: true });
+  addEventListener('resize', medirNoite);
+  setTimeout(medirNoite, 300);
+
   function desenhar() {
     ctx.clearRect(0, 0, W, H);
     // pétalas
@@ -102,7 +113,8 @@
       f.vx *= 0.97; f.vy *= 0.97; f.x += f.vx; f.y += f.vy;
       if (f.x < -30) f.x = W + 30; if (f.x > W + 30) f.x = -30;
       if (f.y < -30) f.y = H + 30; if (f.y > H + 30) f.y = -30;
-      var a = 0.35 + 0.65 * Math.pow(Math.sin(f.t) * 0.5 + 0.5, 2);
+      var a = (0.35 + 0.65 * Math.pow(Math.sin(f.t) * 0.5 + 0.5, 2)) * noite;
+      if (a < 0.02) return;
       ctx.globalAlpha = a;
       ctx.drawImage(brilho, f.x - f.s, f.y - f.s, f.s * 2, f.s * 2);
     });
@@ -186,9 +198,20 @@
     setInterval(tick, 1000);
   }
 
+  // ---------- A noite: varal de luzinhas e o jardim ----------
+  var noiteSecao = el('section', 'noite');
+  noiteSecao.setAttribute('aria-label', 'Jardim Onírico à noite');
+  noiteSecao.appendChild(varal);
+  var quadro = el('figure', 'noite-quadro');
+  quadro.innerHTML = '<img src="img/jardim-noite.jpg" alt="O quadro do Era Uma Vez no jardim à noite, entre hortênsias e rosas" loading="lazy" width="900" height="1170"><figcaption>Quando o sol se põe, o jardim acorda.</figcaption>';
+  noiteSecao.appendChild(quadro);
+  var depoisDe = (document.getElementById('ev-atalhos') || {}).parentNode || document.querySelector('.ev-abertura');
+  depoisDe.parentNode.insertBefore(noiteSecao, depoisDe.nextSibling);
+  setTimeout(medirNoite, 400);
+
   // ---------- Elementos que surgem ao rolar ----------
   if ('IntersectionObserver' in window && !calmo) {
-    var alvos = document.querySelectorAll('.ev-atalho, .ev-bloco, .relogio, .ev-frase');
+    var alvos = document.querySelectorAll('.ev-atalho, .ev-bloco, .relogio, .noite-quadro');
     var obs = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('surgiu'); obs.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px' });
