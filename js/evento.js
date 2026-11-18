@@ -146,6 +146,25 @@
     // Quando a arte já mostra o nome, o título fica só para leitores de tela
     if (d.nome_na_arte && d.arte) $('ev-nome').classList.add('so-leitor');
     if (d.fundo_claro) document.body.classList.add('fundo-claro');
+    // Coprodutores: logo pequeno ao lado da CIT no topo e nome no rodapé
+    if (d.coproducao && d.coproducao.length) {
+      var raizCo = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
+      var topo = document.querySelector('.ev-voltar');
+      var grupo = el('span', 'ev-coproducao');
+      d.coproducao.forEach(function (c) {
+        grupo.appendChild(el('span', 'ev-coproducao-x', '×'));
+        var img = el('img');
+        img.src = raizCo + c.logo;
+        img.alt = c.nome;
+        grupo.appendChild(img);
+      });
+      topo.parentNode.insertBefore(grupo, topo.nextSibling);
+      var assinatura = document.querySelector('.ev-rodape p');
+      if (assinatura) {
+        var cit = assinatura.querySelector('a');
+        d.coproducao.forEach(function (c) { cit.parentNode.insertBefore(document.createTextNode(' × ' + c.nome), cit.nextSibling); });
+      }
+    }
     // Tema visual próprio do evento (css/temas/<tema>.css), com fundo decorativo
     if (d.tema) {
       var raizTema = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';

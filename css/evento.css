@@ -375,3 +375,10 @@ body.tem-barra .ev-rodape { padding-bottom: calc(110px + env(safe-area-inset-bot
 
 /* Fundo claro: logo da CIT escuro */
 .fundo-claro .ev-voltar img { filter: invert(1); }
+
+/* Coprodutores ao lado do logo da CIT, discretos */
+.ev-topo { gap: 10px; }
+.ev-coproducao { display: flex; align-items: center; gap: 10px; margin-right: auto; opacity: 0.8; }
+.ev-coproducao-x { font-size: 0.8rem; opacity: 0.7; }
+.ev-coproducao img { height: 20px; width: auto; }
+.fundo-claro .ev-coproducao img { filter: invert(1); }
