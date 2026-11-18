@@ -5,26 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pré-venda Era Uma Vez · CIT Agency</title>
 <meta name="description" content="Cadastre-se na pré-venda do Era Uma Vez · Jardim Onírico, 16 de janeiro em Guarapari/ES, e entre no grupo exclusivo.">
-<meta name="theme-color" content="#0089CB">
+<meta name="theme-color" content="#0B140E">
 <meta property="og:title" content="Pré-venda Era Uma Vez">
 <meta property="og:description" content="Cadastre-se e entre no grupo de pré-venda. 16 de janeiro · Guarapari/ES.">
-<meta property="og:image" content="https://citagency.com.br/eventos/era-uma-vez/img/poster-dia.jpg">
+<meta property="og:image" content="https://citagency.com.br/eventos/era-uma-vez/img/jardim-noite-tela.jpg">
 <link rel="icon" href="/eventos/era-uma-vez/img/icone.png">
+<link rel="preload" as="image" href="/eventos/era-uma-vez/img/jardim-noite-tela.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
-  /* Pré-venda Era Uma Vez: céu azul do pôster, nuvens, moldura dourada.
-     Uma coluna no celular; pôster e formulário lado a lado no computador. */
+  /* Pré-venda Era Uma Vez sobre a foto do jardim à noite.
+     Celular: a foto ocupa a primeira tela e o formulário vem logo abaixo, no verde do gramado.
+     Computador: a foto fica fixa à esquerda e o formulário à direita. */
   :root {
-    --ceu: #0089CB;
-    --ceu-fundo: #2E95D3;
+    --noite: #0B140E;
+    --musgo: #132219;
     --ouro: #E2BE6A;
     --ouro-claro: #F6DB94;
     --ouro-escuro: #9C7330;
+    --ceu: #3B86C4;
+    --rosa: #F4A6B8;
     --creme: #FBF1DC;
     --tinta: #1C1508;
-    --vidro: rgba(8, 40, 72, 0.5);
     --erro: #FFD5C7;
     --fonte-titulo: "Cinzel", Georgia, serif;
     --fonte-texto: "Lora", Georgia, serif;
@@ -32,198 +35,256 @@
   }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(180deg, var(--ceu) 0, var(--ceu-fundo) 55%, #3C82BC 100%);
-    color: var(--creme);
-    font-family: var(--fonte-texto);
-    font-size: 1.02rem;
-    line-height: 1.5;
-    overflow-x: clip;
-  }
+  html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--noite); color: var(--creme); font-family: var(--fonte-texto); font-size: 1.02rem; line-height: 1.5; overflow-x: clip; }
   img { max-width: 100%; display: block; }
   :focus-visible { outline: 3px solid var(--ouro-claro); outline-offset: 3px; border-radius: 6px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  /* Céu */
-  .ceu { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-  .nuvem { position: absolute; width: var(--w); height: calc(var(--w) * 0.32); border-radius: 999px; background: #fff; opacity: .8; filter: blur(14px); animation: passa var(--v) linear infinite; animation-delay: var(--d); }
-  .nuvem::before, .nuvem::after { content: ""; position: absolute; border-radius: 50%; background: inherit; }
-  .nuvem::before { width: 45%; height: 140%; left: 18%; top: -55%; }
-  .nuvem::after { width: 35%; height: 115%; left: 50%; top: -35%; }
-  .n1 { --w: 280px; top: 8%; --v: 70s; --d: -20s; }
-  .n2 { --w: 200px; top: 38%; --v: 55s; --d: -40s; opacity: .6; }
-  .n3 { --w: 340px; top: 72%; --v: 85s; --d: -5s; opacity: .55; }
-  @keyframes passa { from { transform: translateX(-120%); left: 0; } to { transform: translateX(0); left: 110%; } }
-  .sol { position: absolute; top: -140px; right: -120px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,236,170,.9), rgba(255,220,120,.25) 45%, transparent 70%); }
+  .vagalumes { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
 
-  .pagina {
+  /* Primeira tela: a foto */
+  .capa {
     position: relative;
-    z-index: 1;
-    max-width: 1080px;
-    margin-inline: auto;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-block: 18px 40px;
+    min-height: 100svh;
     display: grid;
-    gap: 22px;
+    align-content: space-between;
+    overflow: hidden;
+    isolation: isolate;
   }
-  .topo { display: flex; justify-content: space-between; align-items: center; }
-  .topo img { width: 64px; height: auto; }
+  .capa-foto {
+    position: absolute; inset: 0; z-index: -2;
+    background: url("/eventos/era-uma-vez/img/jardim-noite-tela.jpg") center 38% / cover no-repeat;
+    transform: scale(calc(1.04 + var(--rolar, 0) * 0.08)) translateY(calc(var(--rolar, 0) * 40px));
+    animation: respira 14s ease-in-out infinite alternate;
+  }
+  @keyframes respira { to { background-position: center 44%; } }
+  .capa::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(to bottom, rgba(11, 20, 14, .55) 0, rgba(11, 20, 14, 0) 22%, rgba(11, 20, 14, 0) 70%, rgba(11, 20, 14, .7) 88%, var(--noite) 100%);
+  }
+  .topo {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: max(14px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  }
+  .topo img { width: 62px; height: auto; }
   .selo-pre {
-    font-family: var(--fonte-titulo); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-    background: var(--ouro); color: var(--tinta); padding: 6px 12px; border-radius: 999px; font-weight: 600;
+    font-family: var(--fonte-titulo); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600;
+    color: var(--tinta); background: linear-gradient(135deg, var(--ouro-claro), var(--ouro)); padding: 6px 12px; border-radius: 999px;
+    box-shadow: 0 0 20px rgba(246, 219, 148, .45);
   }
-
-  .principal { display: grid; gap: 22px; align-items: center; }
-  .poster { margin: 0; justify-self: center; width: min(52%, 240px); position: relative; transform: rotate(-2deg); animation: flutua 6s ease-in-out infinite; }
-  .poster .arte { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 24px 50px rgba(0, 30, 60, .45), 0 0 50px rgba(255, 220, 140, .25); }
-  .poster .selo { position: absolute; right: -18%; bottom: -10%; width: 50%; height: auto; animation: gira 30s linear infinite; filter: drop-shadow(0 6px 14px rgba(0,0,0,.35)); }
-  @keyframes flutua { 50% { translate: 0 -6px; } }
-  @keyframes gira { to { rotate: 360deg; } }
-
-  .chamada { display: grid; gap: 10px; text-align: center; justify-items: center; }
+  .capa-texto {
+    display: grid; gap: 10px; justify-items: center; text-align: center;
+    padding: 0 max(18px, env(safe-area-inset-right, 0px)) 26px max(18px, env(safe-area-inset-left, 0px));
+  }
+  .chamada .data { margin: 0; text-shadow: 0 0 14px rgba(246, 219, 148, .4); font-family: var(--fonte-titulo); letter-spacing: .22em; text-transform: uppercase; font-size: .78rem; color: var(--ouro-claro); }
   .chamada h1 {
-    margin: 0; font-family: var(--fonte-titulo); font-weight: 600; text-transform: uppercase;
-    font-size: clamp(1.6rem, 7vw, 2.6rem); line-height: 1.05; color: var(--ouro-claro); text-wrap: balance;
+    margin: 0; font-family: var(--fonte-titulo); font-weight: 600; text-transform: uppercase; line-height: 1.05;
+    font-size: clamp(1.7rem, 8.4vw, 3rem); text-wrap: balance;
+    background: linear-gradient(100deg, var(--ouro-claro) 20%, #FFF6DA 45%, var(--ouro) 60%, var(--ouro-claro) 80%);
+    background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: ouro-corre 6s linear infinite; text-shadow: 0 2px 30px rgba(0, 0, 0, .4);
   }
-  .chamada p { margin: 0; max-width: 38ch; }
-  .data { font-family: var(--fonte-titulo); letter-spacing: .16em; text-transform: uppercase; font-size: .82rem; color: #FFE7A8; }
+  @keyframes ouro-corre { to { background-position: -220% 0; } }
+  .chamada p.sub { margin: 0; font-style: italic; max-width: 32ch; text-shadow: 0 1px 12px rgba(0, 0, 0, .8); }
+  .chamada { display: grid; gap: 10px; justify-items: center; text-align: center; max-width: 520px; margin: 0 auto 30px; }
+  .descer {
+    margin-top: 6px; display: inline-flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; color: var(--creme);
+    font-family: var(--fonte-titulo); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
+  }
+  .descer span { font-size: 1.3rem; color: var(--ouro); animation: pulo 1.8s ease-in-out infinite; }
+  @keyframes pulo { 50% { transform: translateY(6px); } }
 
-  /* Formulário em moldura dourada */
-  .cartao {
-    background: var(--vidro);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(226, 190, 106, .7);
-    box-shadow: inset 0 0 0 5px rgba(8, 40, 72, .35), inset 0 0 0 6px rgba(226, 190, 106, .35), 0 20px 50px rgba(0, 30, 60, .35);
-    border-radius: 18px;
-    padding: 22px 18px;
+  /* Formulário */
+  .cadastro {
+    position: relative;
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
+    background:
+      radial-gradient(80% 50% at 50% 0%, rgba(59, 134, 196, .16), transparent 70%),
+      var(--noite);
   }
+  .moldura {
+    position: relative; max-width: 520px; margin: 0 auto; padding: 26px 20px 22px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(59, 134, 196, .22), rgba(19, 34, 25, .9) 40%);
+    border: 2px solid var(--ouro);
+    box-shadow: inset 0 0 0 6px var(--noite), inset 0 0 0 7px rgba(226, 190, 106, .55), 0 0 0 1px rgba(156, 115, 48, .8), 0 30px 60px rgba(0, 0, 0, .55), 0 0 70px rgba(226, 190, 106, .14);
+  }
+  .moldura::before, .moldura::after {
+    content: "✦"; position: absolute; color: var(--ouro); font-size: 1.1rem; line-height: 1;
+    text-shadow: 0 0 10px rgba(246, 219, 148, .8);
+  }
+  .moldura::before { top: -11px; left: 50%; transform: translateX(-50%); background: var(--noite); padding: 0 8px; }
+  .moldura::after { bottom: -11px; left: 50%; transform: translateX(-50%); background: var(--noite); padding: 0 8px; }
+  .moldura-titulo { margin: 0 0 4px; text-align: center; font-family: var(--fonte-titulo); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ouro-claro); font-size: 1.05rem; }
+  .moldura-sub { margin: 0 0 18px; text-align: center; font-size: .9rem; opacity: .85; }
   form { display: grid; gap: 14px; }
   .campo { display: grid; gap: 5px; min-width: 0; }
-  .campo label { font-weight: 700; font-size: .9rem; }
+  .campo label { font-weight: 700; font-size: .88rem; letter-spacing: .02em; }
   .linha { display: grid; grid-template-columns: minmax(0, 1fr) 92px; gap: 10px; }
   input, select {
-    width: 100%; min-height: 48px; padding: 10px 12px; border-radius: 12px;
-    border: 1.5px solid rgba(251, 241, 220, .35); background: rgba(0, 25, 50, .35); color: var(--creme);
-    font: inherit; font-size: 1rem;
+    width: 100%; min-height: 48px; padding: 10px 12px; border-radius: 10px;
+    border: 1px solid rgba(226, 190, 106, .4); background: rgba(5, 12, 8, .55); color: var(--creme);
+    font: inherit; font-size: 1rem; transition: border-color .2s, box-shadow .2s;
   }
   select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ouro) 50%), linear-gradient(135deg, var(--ouro) 50%, transparent 50%); background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px; background-size: 5px 5px; background-repeat: no-repeat; }
   select option { color: #1C1508; }
-  input::placeholder { color: rgba(251, 241, 220, .5); }
-  input:focus, select:focus { outline: none; border-color: var(--ouro); }
+  input::placeholder { color: rgba(251, 241, 220, .45); }
+  input:focus, select:focus { outline: none; border-color: var(--ouro); box-shadow: 0 0 0 3px rgba(226, 190, 106, .2), 0 0 18px rgba(246, 219, 148, .2); }
   input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--erro); background: rgba(80, 20, 10, .35); }
-  .aceite { display: flex; gap: 10px; align-items: flex-start; font-size: .86rem; cursor: pointer; }
+  .aceite { display: flex; gap: 10px; align-items: flex-start; font-size: .84rem; cursor: pointer; opacity: .95; }
   .aceite input { width: 20px; min-height: 0; height: 20px; margin: 2px 0 0; accent-color: var(--ouro); flex: none; }
   .isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-  .erro { margin: 0; padding: 10px 12px; border-radius: 12px; background: rgba(80, 20, 10, .45); color: var(--erro); font-weight: 700; font-size: .9rem; }
+  .erro { margin: 0; padding: 10px 12px; border-radius: 10px; background: rgba(80, 20, 10, .5); color: var(--erro); font-weight: 700; font-size: .9rem; }
   .botao {
     position: relative; overflow: hidden; width: 100%; min-height: 54px; border: 0; border-radius: 999px; cursor: pointer;
     background: linear-gradient(135deg, var(--ouro-claro), var(--ouro) 45%, var(--ouro-escuro));
-    color: var(--tinta); font-family: var(--fonte-titulo); font-weight: 600; font-size: 1.05rem; letter-spacing: .06em;
-    box-shadow: 0 10px 26px rgba(226, 190, 106, .35), inset 0 1px 0 rgba(255,255,255,.6);
+    color: var(--tinta); font-family: var(--fonte-titulo); font-weight: 600; font-size: 1.02rem; letter-spacing: .08em; text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(226, 190, 106, .35), inset 0 1px 0 rgba(255, 255, 255, .6);
     text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 10px 20px;
+    transition: transform .15s;
   }
-  .botao::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.7) 50%, transparent 65%); transform: translateX(-130%); animation: brilho 3.2s ease-in-out infinite; }
+  .botao:active { transform: scale(.98); }
+  .botao::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .7) 50%, transparent 65%); transform: translateX(-130%); animation: brilho 3.2s ease-in-out infinite; }
   @keyframes brilho { 60%, 100% { transform: translateX(130%); } }
   .botao:disabled { opacity: .75; cursor: wait; }
-  .nota { margin: 0; font-size: .8rem; text-align: center; opacity: .85; }
+  .nota { margin: 0; font-size: .8rem; text-align: center; opacity: .8; }
 
-  .ok { display: grid; gap: 14px; text-align: center; justify-items: center; }
+  .ok { display: grid; gap: 14px; text-align: center; justify-items: center; padding-block: 10px; }
+  .ok .estrelas { color: var(--ouro); letter-spacing: .5em; font-size: 1.1rem; }
   .ok h2 { margin: 0; font-family: var(--fonte-titulo); font-weight: 600; color: var(--ouro-claro); font-size: 1.5rem; }
   .ok p { margin: 0; }
 
-  .rodape { text-align: center; font-size: .8rem; opacity: .85; }
+  .rodape { text-align: center; font-size: .78rem; opacity: .7; padding: 26px 16px 34px; }
   .rodape a { color: inherit; }
 
-  @media (min-width: 860px) {
-    .pagina { padding-block: 28px 56px; gap: 30px; }
-    .principal { grid-template-columns: 380px minmax(0, 1fr); gap: 56px; }
-    .poster { width: 100%; grid-row: span 2; align-self: center; }
-    .chamada { text-align: left; justify-items: start; }
-    .cartao { padding: 28px 26px; }
+  @media (max-width: 420px) { .botao { font-size: .9rem; letter-spacing: .04em; padding-inline: 14px; } }
+  @media (min-width: 900px) {
+    .pagina { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 100vh; }
+    .capa { position: sticky; top: 0; height: 100vh; min-height: 0; }
+    .capa::after { background: linear-gradient(to right, rgba(11, 20, 14, 0) 70%, var(--noite) 100%), linear-gradient(to bottom, rgba(11, 20, 14, .5) 0, transparent 20%, transparent 60%, rgba(11, 20, 14, .8) 100%); }
+    .capa-texto { display: none; }
+    .chamada { margin-bottom: 26px; }
+    .lado { display: grid; align-content: center; padding-block: 40px; }
+    .cadastro { padding-block: 30px; background: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .nuvem, .poster, .poster .selo, .botao::after { animation: none; }
+    .capa-foto, .capa-texto h1, .descer span, .botao::after { animation: none; }
+    .vagalumes { display: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="ceu" aria-hidden="true">
-  <span class="sol"></span>
-  <span class="nuvem n1"></span><span class="nuvem n2"></span><span class="nuvem n3"></span>
-</div>
+<canvas class="vagalumes" aria-hidden="true"></canvas>
 
 <div class="pagina">
-  <header class="topo">
-    <a href="/eventos/era-uma-vez/"><img src="/assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593"></a>
-    <span class="selo-pre">Pré-venda</span>
+  <header class="capa">
+    <div class="capa-foto" aria-hidden="true"></div>
+    <div class="topo">
+      <a href="/eventos/era-uma-vez/"><img src="/assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593"></a>
+      <span class="selo-pre">Pré-venda</span>
+    </div>
+    <div class="capa-texto">
+      <a class="descer" href="#cadastro">Fazer meu cadastro <span aria-hidden="true">↓</span></a>
+    </div>
   </header>
 
-  <main class="principal">
-    <figure class="poster">
-      <img class="arte" src="/eventos/era-uma-vez/img/poster-dia.jpg" alt="Pôster do Era Uma Vez · Jardim Onírico, 16 de janeiro, Guarapari/ES" width="900" height="1200">
-      <img class="selo" src="/eventos/era-uma-vez/img/selo.png" alt="" width="409" height="420">
-    </figure>
-
-    <div class="chamada">
-      <p class="data">16 de janeiro · Guarapari/ES</p>
-      <h1>Entre primeiro no Jardim Onírico</h1>
-      <p>Faça seu cadastro e entre no grupo de pré-venda: os primeiros ingressos e as novidades saem lá antes de todo mundo.</p>
-    </div>
-
-    <section class="cartao" aria-label="Cadastro da pré-venda">
-      <form id="form" novalidate>
-        <div class="campo">
-          <label for="nome">Nome completo</label>
-          <input id="nome" name="nome" type="text" autocomplete="name" required>
-        </div>
-        <div class="linha">
-          <div class="campo">
-            <label for="cidade">Cidade</label>
-            <input id="cidade" name="cidade" type="text" autocomplete="address-level2" required>
-          </div>
-          <div class="campo">
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado" required>
-              <option value="">UF</option>
-            </select>
-          </div>
-        </div>
-        <div class="campo">
-          <label for="whatsapp">WhatsApp</label>
-          <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(27) 99999-9999" required>
-        </div>
-        <div class="campo">
-          <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
-        </div>
-        <input class="isca" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="aceite">
-          <input id="aceite" type="checkbox" required>
-          <span>Autorizo a CIT Agency a guardar meus dados e falar comigo sobre o Era Uma Vez e outros eventos, conforme a LGPD.</span>
-        </label>
-        <p class="erro" id="erro" role="alert" hidden></p>
-        <button class="botao" id="enviar" type="submit">Quero entrar na pré-venda</button>
-        <p class="nota">Ao concluir, você vai direto para o grupo de pré-venda no WhatsApp.</p>
-      </form>
-
-      <div class="ok" id="ok" hidden>
-        <h2>Cadastro feito!</h2>
-        <p>Abrindo o grupo de pré-venda no WhatsApp…</p>
-        <a class="botao" id="ir-grupo" href="#">Entrar no grupo agora</a>
+  <div class="lado">
+    <main class="cadastro" id="cadastro">
+      <div class="chamada">
+        <p class="data">Pré-venda · 16 de janeiro · Guarapari/ES</p>
+        <h1>Entre primeiro no Jardim Onírico</h1>
+        <p class="sub">Os primeiros ingressos e as novidades saem no grupo de pré-venda, antes de todo mundo.</p>
       </div>
-    </section>
-  </main>
+      <section class="moldura" aria-labelledby="titulo-form">
+        <h2 class="moldura-titulo" id="titulo-form">Lista da pré-venda</h2>
+        <p class="moldura-sub">Leva menos de um minuto.</p>
+        <form id="form" novalidate>
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="linha">
+            <div class="campo">
+              <label for="cidade">Cidade</label>
+              <input id="cidade" name="cidade" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="campo">
+              <label for="estado">Estado</label>
+              <select id="estado" name="estado" required>
+                <option value="">UF</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="whatsapp">WhatsApp</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(27) 99999-9999" required>
+          </div>
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+          </div>
+          <input class="isca" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="aceite">
+            <input id="aceite" type="checkbox" required>
+            <span>Autorizo a CIT Agency a guardar meus dados e falar comigo sobre o Era Uma Vez e outros eventos, conforme a LGPD.</span>
+          </label>
+          <p class="erro" id="erro" role="alert" hidden></p>
+          <button class="botao" id="enviar" type="submit">Quero entrar na pré-venda</button>
+          <p class="nota">Ao concluir, você vai direto para o grupo de pré-venda no WhatsApp.</p>
+        </form>
 
-  <footer class="rodape">
-    <p>Uma realização <a href="/">CIT Agency</a> · CIT AGENCY LTDA · CNPJ 55.477.306/0001-25</p>
-  </footer>
+        <div class="ok" id="ok" hidden>
+          <span class="estrelas" aria-hidden="true">✦ ✦ ✦</span>
+          <h2>Seu lugar no jardim está guardado</h2>
+          <p>Abrindo o grupo de pré-venda no WhatsApp…</p>
+          <a class="botao" id="ir-grupo" href="#">Entrar no grupo agora</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>Uma realização <a href="/">CIT Agency</a> · CIT AGENCY LTDA · CNPJ 55.477.306/0001-25</p>
+    </footer>
+  </div>
 </div>
 
+<script>
+  // Vaga-lumes que seguem o dedo/mouse, brilho ao tocar e a foto que se aproxima ao rolar
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c = document.querySelector('.vagalumes'), x = c.getContext('2d');
+    var W, H, dpr = Math.min(devicePixelRatio || 1, 2);
+    function medir() { W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    medir(); addEventListener('resize', medir);
+    var b = document.createElement('canvas'); b.width = b.height = 64;
+    var g = b.getContext('2d'), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gr.addColorStop(0, 'rgba(255,248,200,1)'); gr.addColorStop(.18, 'rgba(255,226,120,.9)'); gr.addColorStop(.45, 'rgba(240,190,70,.25)'); gr.addColorStop(1, 'rgba(240,190,70,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+    var r = function (a, z) { return a + Math.random() * (z - a); };
+    var f = [], s = [], p = { x: -999, y: -999, on: false };
+    for (var i = 0; i < (W < 600 ? 24 : 40); i++) f.push({ x: r(0, W), y: r(0, H), vx: r(-.3, .3), vy: r(-.3, .3), t: r(0, 6.28), s: r(9, 20), k: r(.6, 1.6) });
+    addEventListener('pointermove', function (e) { p.x = e.clientX; p.y = e.clientY; p.on = true; }, { passive: true });
+    addEventListener('pointerdown', function (e) { for (var i = 0; i < 14; i++) { var a = Math.random() * 6.28, v = r(1, 3.2); s.push({ x: e.clientX, y: e.clientY, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1, s: r(6, 12), l: 1 }); } }, { passive: true });
+    addEventListener('scroll', function () { document.documentElement.style.setProperty('--rolar', Math.min(scrollY / innerHeight, 1).toFixed(3)); }, { passive: true });
+    (function loop() {
+      x.clearRect(0, 0, W, H); x.globalCompositeOperation = 'lighter';
+      f.forEach(function (q) {
+        q.t += .02 * q.k; q.vx += Math.cos(q.t * .7) * .01; q.vy += Math.sin(q.t * .9) * .01;
+        if (p.on) { var dx = p.x - q.x, dy = p.y - q.y, d = Math.hypot(dx, dy); if (d < 220 && d > 30) { q.vx += dx / d * .06; q.vy += dy / d * .06; } }
+        q.vx *= .97; q.vy *= .97; q.x += q.vx; q.y += q.vy;
+        if (q.x < -30) q.x = W + 30; if (q.x > W + 30) q.x = -30; if (q.y < -30) q.y = H + 30; if (q.y > H + 30) q.y = -30;
+        x.globalAlpha = .35 + .65 * Math.pow(Math.sin(q.t) * .5 + .5, 2);
+        x.drawImage(b, q.x - q.s, q.y - q.s, q.s * 2, q.s * 2);
+      });
+      for (var k = s.length - 1; k >= 0; k--) { var e = s[k]; e.x += e.vx; e.y += e.vy; e.vy += .04; e.l -= .02; if (e.l <= 0) { s.splice(k, 1); continue; } x.globalAlpha = e.l; x.drawImage(b, e.x - e.s, e.y - e.s, e.s * 2, e.s * 2); }
+      x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
+      requestAnimationFrame(loop);
+    })();
+  })();
+</script>
 <script>
   // Grupo de pré-venda e nome da aba na planilha de listas
   var GRUPO = 'https://chat.whatsapp.com/Eoul549lNGqFhRmU2mcXSq';
