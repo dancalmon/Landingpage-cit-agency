@@ -142,6 +142,7 @@
     }
     // Quando a arte já mostra o nome, o título fica só para leitores de tela
     if (d.nome_na_arte && d.arte) $('ev-nome').classList.add('so-leitor');
+    if (d.fundo_claro) document.body.classList.add('fundo-claro');
     if (d.icone) {
       var icone = document.querySelector('link[rel="icon"]');
       if (icone) icone.href = d.icone;

@@ -372,3 +372,6 @@ body.tem-barra .ev-rodape { padding-bottom: calc(110px + env(safe-area-inset-bot
 .ev-janela-itens li { padding: 12px 14px 12px 40px; border-radius: 12px; background: rgba(0, 0, 0, 0.18); position: relative; }
 .ev-janela-itens li::before { content: "★"; position: absolute; left: 14px; color: var(--ev-destaque); }
 .ev-janela-acoes { display: grid; gap: 10px; padding-top: 4px; }
+
+/* Fundo claro: logo da CIT escuro */
+.fundo-claro .ev-voltar img { filter: invert(1); }

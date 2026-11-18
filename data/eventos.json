@@ -46,12 +46,14 @@
       "nome": "Aura",
       "data": "2026-12-19",
       "horario": "",
-      "local": "Vitória/ES",
-      "atracoes": [],
+      "local": "Oásis Beach Club, Vitória/ES",
+      "atracoes": [
+        "Antdot"
+      ],
       "cor": "magenta",
       "arte": "assets/img/eventos/aura.jpg",
-      "link": "https://chat.whatsapp.com/K9u1OsreGXu5hXM1vKVzSM",
-      "link_texto": "Entrar no grupo"
+      "link": "eventos/aura/index.html",
+      "link_texto": "Ver evento"
     },
     {
       "nome": "João Gomes em Itaúnas",
