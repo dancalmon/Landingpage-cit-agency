@@ -37,7 +37,8 @@
     "duvidas -> perguntas frequentes",
     "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)",
     "tema_script -> true carrega também as interações do tema (js/temas/<tema>.js)",
-    "coproducao -> (opcional) lista de coprodutores {nome, logo}: logo pequeno ao lado da CIT no topo e nome no rodapé"
+    "coproducao -> (opcional) lista de coprodutores {nome, logo}: logo pequeno ao lado da CIT no topo e nome no rodapé",
+    "musica -> (opcional) link de uma música do Spotify; aparece um player logo depois da abertura"
   ],
   "nome": "Era Uma Vez",
   "logo": "img/logo-vertical.png",
@@ -213,5 +214,6 @@
       "nome": "Rupel Entertainment",
       "logo": "assets/img/rupel-branco.png"
     }
-  ]
+  ],
+  "musica": "https://open.spotify.com/track/3HGwI9qwq5XqBDeZBV3zti"
 }

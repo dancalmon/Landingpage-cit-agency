@@ -198,6 +198,18 @@
         document.documentElement.style.setProperty('--rolagem', Math.min(scrollY / innerHeight, 3).toFixed(3));
       }, { passive: true });
     }
+    // Música do evento (player do Spotify) logo depois da abertura
+    if (d.musica) {
+      var id = (String(d.musica).match(/track\/([A-Za-z0-9]+)/) || [])[1];
+      if (id) {
+        var trilha = el('section', 'ev-largura ev-trilha');
+        trilha.setAttribute('aria-label', 'Música do evento');
+        trilha.innerHTML = '<p class="ev-trilha-titulo">✦ Dê o play e entre no clima ✦</p>' +
+          '<iframe title="Música do evento no Spotify" src="https://open.spotify.com/embed/track/' + id + '?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+        var ab = document.querySelector('.ev-abertura');
+        ab.parentNode.insertBefore(trilha, ab.nextSibling);
+      }
+    }
     if (d.frase_final) {
       var frase = el('section', 'ev-largura ev-frase');
       d.frase_final.forEach(function (l) { frase.appendChild(el('p', null, l)); });
