@@ -35,7 +35,8 @@
     "titulo_atracoes -> (opcional) troca o título da seção Line-up (ex.: O que toca?)",
     "infos -> quadro de informações gerais (rótulo e valor)",
     "duvidas -> perguntas frequentes",
-    "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)"
+    "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)",
+    "tema_script -> true carrega também as interações do tema (js/temas/<tema>.js)"
   ],
   "nome": "Era Uma Vez",
   "logo": "img/logo-vertical.png",
@@ -45,7 +46,7 @@
   "horario": "22h",
   "local": "Secret Venue",
   "cidade": "Guarapari/ES",
-  "arte": "img/key-visual.jpg",
+  "arte": "img/quadro-jardim.jpg",
   "selo": "img/selo.png",
   "simbolo": "img/sol.png",
   "icone": "img/icone.png",
@@ -191,5 +192,7 @@
       "pergunta": "Como compro meu ingresso?",
       "resposta": "Pelo WhatsApp do concierge da CIT, no botão 'Quero meu ingresso' desta página."
     }
-  ]
+  ],
+  "tema": "era-uma-vez",
+  "tema_script": true
 }

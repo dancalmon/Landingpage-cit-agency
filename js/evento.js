@@ -154,6 +154,13 @@
       css.href = raizTema + 'css/temas/' + d.tema + '.css?v=' + Date.now().toString().slice(0, 7);
       document.head.appendChild(css);
       document.body.classList.add('tema-' + d.tema);
+      // Interações próprias do tema (js/temas/<tema>.js), quando existir
+      if (d.tema_script) {
+        window.CITEvento = d;
+        var js = el('script');
+        js.src = raizTema + 'js/temas/' + d.tema + '.js?v=' + Date.now().toString().slice(0, 7);
+        document.body.appendChild(js);
+      }
       var fundo = el('div', 'ev-tema-fundo');
       fundo.setAttribute('aria-hidden', 'true');
       fundo.innerHTML = '<span class="orbe"></span><span class="orbe orbe-2"></span><span class="aro a1"></span><span class="aro a2"></span><span class="aro a3"></span><span class="grao"></span>';
