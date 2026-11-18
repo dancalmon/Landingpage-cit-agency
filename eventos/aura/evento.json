@@ -36,17 +36,25 @@
     "infos -> quadro de informações gerais (rótulo e valor)",
     "duvidas -> perguntas frequentes",
     "botoes -> aniversario: itens são os benefícios do evento; formulario 'aniversario' mostra o cadastro com cupom BDAY+PRIMEIRONOME (vai para a planilha de aniversários)",
-    "fundo_claro -> true quando o fundo do evento é claro: o logo da CIT no topo fica escuro"
+    "fundo_claro -> true quando o fundo do evento é claro: o logo da CIT no topo fica escuro",
+    "tema -> (opcional) visual próprio do evento, em css/temas/<tema>.css (ex.: aura)",
+    "frase_final -> (opcional) lista de linhas de uma frase de assinatura mostrada antes do rodapé",
+    "atracoes[].logo -> (opcional) imagem do nome do artista, com fundo transparente, no lugar do texto",
+    "data_longa -> true mostra a data por extenso no topo (ex.: 19 dezembro · sábado)"
   ],
   "nome": "Aura",
-  "chamada": "Ascension",
-  "subchamada": "In every ending, a greater beginning. A new ascension.",
+  "chamada": "",
+  "subchamada": "",
   "data": "2026-12-19",
   "horario": "",
   "local": "Oásis Beach Club",
   "cidade": "Vitória/ES",
   "arte": "img/vertical.jpg",
-  "nome_na_arte": true,
+  "logo": "img/logo.png",
+  "simbolo": "img/mandala.png",
+  "icone": "img/icone.png",
+  "tema": "aura",
+  "nome_na_arte": false,
   "whatsapp": "5527999973999",
   "visual": {
     "cores": {
@@ -118,6 +126,7 @@
   "atracoes": [
     {
       "nome": "Antdot",
+      "logo": "img/antdot.png",
       "foto": ""
     },
     {
@@ -145,5 +154,11 @@
       "resposta": "Com o concierge da CIT pelo WhatsApp, no botão 'Concierge CIT' desta página."
     }
   ],
-  "fundo_claro": true
+  "fundo_claro": true,
+  "frase_final": [
+    "In every ending",
+    "a greater beginning",
+    "a new ascension."
+  ],
+  "data_longa": true
 }

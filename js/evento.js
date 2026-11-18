@@ -96,14 +96,17 @@
     var data = lerData(d.data);
     var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
     if (data) {
-      $('ev-quando').textContent = DIAS[data.getDay()].slice(0, 3) + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '');
+      var MESES_LONGOS = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+      $('ev-quando').textContent = d.data_longa
+        ? data.getDate() + ' ' + MESES_LONGOS[data.getMonth()] + ' · ' + DIAS[data.getDay()] + (d.horario ? ' · ' + d.horario : '')
+        : DIAS[data.getDay()].slice(0, 3) + ' · ' + String(data.getDate()).padStart(2, '0') + ' ' + MESES[data.getMonth()] + (d.horario ? ' · ' + d.horario : '');
       var dias = Math.round((data - hoje) / 86400000);
       $('ev-contagem').textContent = dias > 1 ? 'Faltam ' + dias + ' dias' : dias === 1 ? 'É amanhã' : dias === 0 ? 'É hoje' : 'Evento realizado';
     }
     $('ev-onde').textContent = [d.local, d.cidade].filter(Boolean).join(' · ');
     var nome = $('ev-nome');
     // A arte já traz o logo: o logo só aparece quando o evento não tem arte
-    if (d.logo && !d.arte) {
+    if (d.logo && (!d.arte || d.tema)) {
       var logo = el('img', 'ev-logo');
       logo.src = d.logo;
       logo.alt = d.nome;
@@ -143,6 +146,39 @@
     // Quando a arte já mostra o nome, o título fica só para leitores de tela
     if (d.nome_na_arte && d.arte) $('ev-nome').classList.add('so-leitor');
     if (d.fundo_claro) document.body.classList.add('fundo-claro');
+    // Tema visual próprio do evento (css/temas/<tema>.css), com fundo decorativo
+    if (d.tema) {
+      var raizTema = (document.querySelector('meta[name="ev-raiz"]') || {}).content || '';
+      var css = el('link');
+      css.rel = 'stylesheet';
+      css.href = raizTema + 'css/temas/' + d.tema + '.css?v=' + Date.now().toString().slice(0, 7);
+      document.head.appendChild(css);
+      document.body.classList.add('tema-' + d.tema);
+      var fundo = el('div', 'ev-tema-fundo');
+      fundo.setAttribute('aria-hidden', 'true');
+      fundo.innerHTML = '<span class="orbe"></span><span class="orbe orbe-2"></span><span class="aro a1"></span><span class="aro a2"></span><span class="aro a3"></span><span class="grao"></span>';
+      document.body.insertBefore(fundo, document.body.firstChild);
+      // A luz acompanha o dedo/mouse de leve
+      var raf = 0;
+      window.addEventListener('pointermove', function (e) {
+        if (raf) return;
+        raf = requestAnimationFrame(function () {
+          document.documentElement.style.setProperty('--mx', (e.clientX / innerWidth - 0.5).toFixed(3));
+          document.documentElement.style.setProperty('--my', (e.clientY / innerHeight - 0.5).toFixed(3));
+          raf = 0;
+        });
+      }, { passive: true });
+      window.addEventListener('scroll', function () {
+        document.documentElement.style.setProperty('--rolagem', Math.min(scrollY / innerHeight, 3).toFixed(3));
+      }, { passive: true });
+    }
+    if (d.frase_final) {
+      var frase = el('section', 'ev-largura ev-frase');
+      d.frase_final.forEach(function (l) { frase.appendChild(el('p', null, l)); });
+      frase.appendChild(el('span', 'ev-estrelas', '✦ ✦ ✦'));
+      var ref = document.querySelector('.ev-rodape');
+      ref.parentNode.insertBefore(frase, ref);
+    }
     if (d.icone) {
       var icone = document.querySelector('link[rel="icon"]');
       if (icone) icone.href = d.icone;
@@ -293,7 +329,18 @@
     // Em destaque no topo: nomes das atrações ou estilos
     var toca = $('ev-toca');
     $('ev-toca-titulo').textContent = titulo || 'Line-up';
-    lista.forEach(function (a) { $('ev-toca-lista').appendChild(el('li', null, a.nome)); });
+    lista.forEach(function (a) {
+      var li = el('li', a.logo ? 'tem-logo' : null);
+      if (a.logo) {
+        var img = el('img');
+        img.src = a.logo;
+        img.alt = a.nome;
+        li.appendChild(img);
+      } else {
+        li.textContent = a.nome;
+      }
+      $('ev-toca-lista').appendChild(li);
+    });
     toca.hidden = false;
     // Seção com fotos só quando alguma atração tem foto
     if (!lista.some(function (a) { return a.foto; })) return;
