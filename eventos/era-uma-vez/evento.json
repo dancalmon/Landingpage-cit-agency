@@ -85,6 +85,18 @@
   },
   "botoes": [
     {
+      "id": "comunidade",
+      "ativo": true,
+      "icone": "conversa",
+      "titulo": "Comunidade Era Uma Vez",
+      "subtitulo": "Novidades e promoções em primeira mão",
+      "janela": null,
+      "acao_direta": {
+        "tipo": "link",
+        "link": "https://chat.whatsapp.com/Eoul549lNGqFhRmU2mcXSq"
+      }
+    },
+    {
       "id": "aniversario",
       "ativo": true,
       "icone": "bolo",
