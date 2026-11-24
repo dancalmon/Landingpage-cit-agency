@@ -5,218 +5,246 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pré-venda Era Uma Vez · CIT Agency</title>
 <meta name="description" content="Cadastre-se na pré-venda do Era Uma Vez · Jardim Onírico, 16 de janeiro em Guarapari/ES, e entre no grupo exclusivo.">
-<meta name="theme-color" content="#0B140E">
+<meta name="theme-color" content="#FBF6EA">
 <meta property="og:title" content="Pré-venda Era Uma Vez">
 <meta property="og:description" content="Cadastre-se e entre no grupo de pré-venda. 16 de janeiro · Guarapari/ES.">
-<meta property="og:image" content="https://citagency.com.br/eventos/era-uma-vez/img/jardim-noite-tela.jpg">
+<meta property="og:image" content="https://citagency.com.br/eventos/era-uma-vez/img/poster-dia.jpg">
 <link rel="icon" href="/eventos/era-uma-vez/img/icone.png">
-<link rel="preload" as="image" href="/eventos/era-uma-vez/img/jardim-noite-tela.jpg">
+<link rel="preload" as="image" href="/eventos/era-uma-vez/img/jardim/monograma-euv.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lora:wght@400;600;700&display=swap">
 <style>
-  /* Pré-venda Era Uma Vez sobre a foto do jardim à noite.
-     Celular: a foto ocupa a primeira tela e o formulário vem logo abaixo, no verde do gramado.
-     Computador: a foto fica fixa à esquerda e o formulário à direita. */
+  /* Pré-venda Era Uma Vez: jardim ilustrado sobre papel claro.
+     Monograma EUV com trepadeiras que balançam, flores soltas, pétalas caindo,
+     e o cadastro num cartão com cantos dourados. Uma coluna no celular; duas no computador. */
   :root {
-    --noite: #0B140E;
-    --musgo: #132219;
-    --ouro: #E2BE6A;
-    --ouro-claro: #F6DB94;
-    --ouro-escuro: #9C7330;
-    --ceu: #3B86C4;
-    --rosa: #F4A6B8;
-    --creme: #FBF1DC;
-    --tinta: #1C1508;
-    --erro: #FFD5C7;
+    --papel: #FBF6EA;
+    --papel-claro: #FFFDF7;
+    --tinta: #22304A;
+    --tinta-suave: #5A6478;
+    --ceu: #1B6FB8;
+    --ouro: #B8892E;
+    --ouro-claro: #E8C877;
+    --coral: #F0715A;
+    --linha: #E4D7B8;
+    --erro: #B3261E;
     --fonte-titulo: "Cinzel", Georgia, serif;
+    --fonte-display: "Cormorant Garamond", Georgia, serif;
     --fonte-texto: "Lora", Georgia, serif;
-    color-scheme: dark;
+    --J: "/eventos/era-uma-vez/img/jardim/";
   }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
   html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-behavior: smooth; }
-  body { margin: 0; background: var(--noite); color: var(--creme); font-family: var(--fonte-texto); font-size: 1.02rem; line-height: 1.5; overflow-x: clip; }
+  body {
+    margin: 0; color: var(--tinta); font-family: var(--fonte-texto); font-size: 1rem; line-height: 1.55; overflow-x: clip;
+    background:
+      radial-gradient(120% 60% at 50% -10%, rgba(27, 111, 184, .14), transparent 60%),
+      radial-gradient(80% 40% at 100% 70%, rgba(240, 113, 90, .08), transparent 70%),
+      var(--papel);
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .48 0 0 0 0 .35 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
   img { max-width: 100%; display: block; }
-  :focus-visible { outline: 3px solid var(--ouro-claro); outline-offset: 3px; border-radius: 6px; }
+  :focus-visible { outline: 2px solid var(--ceu); outline-offset: 3px; border-radius: 6px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  .vagalumes { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
+  .petalas { position: fixed; inset: 0; z-index: 4; pointer-events: none; }
+  .pagina { position: relative; z-index: 1; }
 
-  /* Primeira tela: a foto */
-  .capa {
-    position: relative;
-    min-height: 100svh;
-    display: grid;
-    align-content: space-between;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .capa-foto {
-    position: absolute; inset: 0; z-index: -2;
-    background: url("/eventos/era-uma-vez/img/jardim-noite-tela.jpg") center 38% / cover no-repeat;
-    transform: scale(calc(1.04 + var(--rolar, 0) * 0.08)) translateY(calc(var(--rolar, 0) * 40px));
-    animation: respira 14s ease-in-out infinite alternate;
-  }
-  @keyframes respira { to { background-position: center 44%; } }
-  .capa::after {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background:
-      linear-gradient(to bottom, rgba(11, 20, 14, .55) 0, rgba(11, 20, 14, 0) 22%, rgba(11, 20, 14, 0) 70%, rgba(11, 20, 14, .7) 88%, var(--noite) 100%);
-  }
+  /* Topo */
   .topo {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 5;
     padding: max(14px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
   }
-  .topo img { width: 62px; height: auto; }
-  .marcas { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--creme); }
-  .marcas span { font-size: .8rem; opacity: .6; }
-  .topo .rupel { width: auto; height: 20px; opacity: .85; }
+  .marcas { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--tinta-suave); }
+  .marcas img { filter: brightness(0); opacity: .82; height: auto; }
+  .marcas .cit { width: 54px; }
+  .marcas .rupel { width: auto; height: 17px; opacity: .6; }
+  .marcas span { font-size: .8rem; }
   .selo-pre {
-    font-family: var(--fonte-titulo); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600;
-    color: var(--tinta); background: linear-gradient(135deg, var(--ouro-claro), var(--ouro)); padding: 6px 12px; border-radius: 999px;
-    box-shadow: 0 0 20px rgba(246, 219, 148, .45);
+    font-family: var(--fonte-titulo); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 600;
+    color: var(--ouro); border: 1px solid var(--ouro-claro); background: var(--papel-claro); padding: 6px 12px; border-radius: 999px;
   }
-  .capa-texto {
-    display: grid; gap: 10px; justify-items: center; text-align: center;
-    padding: 0 max(18px, env(safe-area-inset-right, 0px)) 26px max(18px, env(safe-area-inset-left, 0px));
-  }
-  .chamada .data { margin: 0; text-shadow: 0 0 14px rgba(246, 219, 148, .4); font-family: var(--fonte-titulo); letter-spacing: .22em; text-transform: uppercase; font-size: .78rem; color: var(--ouro-claro); }
-  .chamada h1 {
-    margin: 0; font-family: var(--fonte-titulo); font-weight: 600; text-transform: uppercase; line-height: 1.05;
-    font-size: clamp(1.7rem, 8.4vw, 3rem); text-wrap: balance;
-    background: linear-gradient(100deg, var(--ouro-claro) 20%, #FFF6DA 45%, var(--ouro) 60%, var(--ouro-claro) 80%);
-    background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: ouro-corre 6s linear infinite; text-shadow: 0 2px 30px rgba(0, 0, 0, .4);
-  }
-  @keyframes ouro-corre { to { background-position: -220% 0; } }
-  .chamada p.sub { margin: 0; font-style: italic; max-width: 32ch; text-shadow: 0 1px 12px rgba(0, 0, 0, .8); }
-  .chamada { display: grid; gap: 10px; justify-items: center; text-align: center; max-width: 520px; margin: 0 auto 30px; }
-  .trilha { max-width: 520px; margin: 0 auto 30px; display: grid; gap: 8px; }
-  .trilha-titulo { margin: 0; text-align: center; font-family: var(--fonte-titulo); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); }
-  .trilha iframe { display: block; border: 0; border-radius: 12px; box-shadow: 0 0 0 1px rgba(226, 190, 106, .45), 0 12px 30px rgba(0, 0, 0, .45); background: #121212; }
-  .descer {
-    margin-top: 6px; display: inline-flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; color: var(--creme);
-    font-family: var(--fonte-titulo); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
-  }
-  .descer span { font-size: 1.3rem; color: var(--ouro); animation: pulo 1.8s ease-in-out infinite; }
-  @keyframes pulo { 50% { transform: translateY(6px); } }
 
-  /* Formulário */
-  .cadastro {
-    position: relative;
-    padding: 10px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
-    background:
-      radial-gradient(80% 50% at 50% 0%, rgba(59, 134, 196, .16), transparent 70%),
-      var(--noite);
+  /* Abertura: monograma entre trepadeiras */
+  .abertura { position: relative; overflow: clip; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 30px max(16px, env(safe-area-inset-left, 0px)); text-align: center; overflow: visible; }
+  .cena { position: relative; width: min(66%, 270px); margin: 6px auto 0; aspect-ratio: 726 / 1300; }
+  .monograma {
+    position: absolute; inset: 0; width: 100%; height: auto;
+    animation: surge 1.4s cubic-bezier(.2,.7,.2,1) both;
   }
-  .moldura {
-    position: relative; max-width: 520px; margin: 0 auto; padding: 26px 20px 22px;
-    border-radius: 6px;
-    background: linear-gradient(180deg, rgba(59, 134, 196, .22), rgba(19, 34, 25, .9) 40%);
-    border: 2px solid var(--ouro);
-    box-shadow: inset 0 0 0 6px var(--noite), inset 0 0 0 7px rgba(226, 190, 106, .55), 0 0 0 1px rgba(156, 115, 48, .8), 0 30px 60px rgba(0, 0, 0, .55), 0 0 70px rgba(226, 190, 106, .14);
+  @keyframes surge { from { opacity: .001; transform: translateY(16px) scale(.97); filter: blur(6px); } }
+  .planta { position: absolute; height: auto; pointer-events: none; transform-origin: 50% 100%; will-change: transform; }
+  .balanca { animation: balanca var(--v, 7s) ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+  @keyframes balanca { from { rotate: calc(var(--g, 3deg) * -1); } to { rotate: var(--g, 3deg); } }
+  .p-trepa-e { left: -46%; bottom: -2%; width: 40%; --g: 2.5deg; --v: 8s; translate: 0 calc(var(--rolar, 0) * -30px); }
+  .p-trepa-d { right: -46%; bottom: 0; width: 41%; --g: 3deg; --v: 9s; --d: -2s; transform: scaleX(-1); translate: 0 calc(var(--rolar, 0) * -45px); }
+  .p-hibisco { right: -34%; bottom: -4%; width: 42%; --g: 4deg; --v: 6s; translate: 0 calc(var(--rolar, 0) * -70px); }
+  .p-amarela { left: -36%; bottom: -6%; width: 40%; --g: 3.5deg; --v: 7s; --d: -3s; translate: 0 calc(var(--rolar, 0) * -60px); }
+  .p-margarida { left: -40%; top: 2%; width: 34%; --g: 5deg; --v: 6.5s; transform-origin: 70% 100%; translate: 0 calc(var(--rolar, 0) * 40px); }
+  .p-espiral { right: -30%; top: 0; width: 24%; --g: 4deg; --v: 7.5s; --d: -1s; translate: 0 calc(var(--rolar, 0) * 30px); }
+
+  .titulos { position: relative; z-index: 2; display: grid; gap: 10px; justify-items: center; margin-top: 18px; }
+  .linha-data {
+    display: flex; align-items: center; gap: 12px; margin: 0;
+    font-family: var(--fonte-titulo); font-size: .76rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ouro);
   }
-  .moldura::before, .moldura::after {
-    content: "✦"; position: absolute; color: var(--ouro); font-size: 1.1rem; line-height: 1;
-    text-shadow: 0 0 10px rgba(246, 219, 148, .8);
+  .linha-data::before, .linha-data::after { content: ""; width: 34px; height: 1px; background: var(--ouro-claro); }
+  .titulos h1 {
+    margin: 0; font-family: var(--fonte-display); font-weight: 600; font-style: italic; line-height: 1.02;
+    font-size: clamp(2.2rem, 10vw, 3.6rem); color: var(--tinta); text-wrap: balance;
   }
-  .moldura::before { top: -11px; left: 50%; transform: translateX(-50%); background: var(--noite); padding: 0 8px; }
-  .moldura::after { bottom: -11px; left: 50%; transform: translateX(-50%); background: var(--noite); padding: 0 8px; }
-  .moldura-titulo { margin: 0 0 4px; text-align: center; font-family: var(--fonte-titulo); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ouro-claro); font-size: 1.05rem; }
-  .moldura-sub { margin: 0 0 18px; text-align: center; font-size: .9rem; opacity: .85; }
-  form { display: grid; gap: 14px; }
-  .campo { display: grid; gap: 5px; min-width: 0; }
-  .campo label { font-weight: 700; font-size: .88rem; letter-spacing: .02em; }
-  .linha { display: grid; grid-template-columns: minmax(0, 1fr) 92px; gap: 10px; }
+  .titulos h1 em { font-style: normal; font-family: var(--fonte-titulo); font-weight: 400; font-size: .62em; letter-spacing: .12em; display: block; color: var(--ceu); }
+  .titulos p { margin: 0; max-width: 34ch; color: var(--tinta-suave); }
+  .chamar {
+    margin-top: 8px; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    font-family: var(--fonte-titulo); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta);
+    padding: 12px 22px; border-radius: 999px; border: 1px solid var(--tinta); transition: background-color .2s, color .2s;
+  }
+  .chamar:hover { background: var(--tinta); color: var(--papel); }
+  .chamar span { display: inline-block; animation: desce 1.8s ease-in-out infinite; }
+  @keyframes desce { 50% { transform: translateY(4px); } }
+
+  /* Música */
+  .trilha { position: relative; z-index: 2; max-width: 520px; margin: 8px auto 34px; padding-inline: max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 8px; }
+  .trilha p { margin: 0; text-align: center; font-family: var(--fonte-titulo); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); }
+  .trilha iframe { display: block; border: 0; border-radius: 12px; background: #121212; box-shadow: 0 14px 30px rgba(34, 48, 74, .16); }
+
+  /* Cadastro: cartão com cantos dourados e flores */
+  .cadastro { position: relative; z-index: 2; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 30px max(16px, env(safe-area-inset-left, 0px)); }
+  .cartao {
+    position: relative; max-width: 520px; margin: 34px auto 0; padding: 40px 22px 26px;
+    background: rgba(255, 253, 247, .86); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border: 1px solid var(--linha); border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(34, 48, 74, .12), inset 0 0 0 7px var(--papel-claro), inset 0 0 0 8px var(--linha);
+  }
+  .canto { position: absolute; width: 54px; height: auto; pointer-events: none; }
+  .canto.c1 { top: -6px; left: -6px; }
+  .canto.c2 { top: -6px; right: -6px; transform: scaleX(-1); }
+  .canto.c3 { bottom: -6px; left: -6px; transform: scaleY(-1); }
+  .canto.c4 { bottom: -6px; right: -6px; transform: scale(-1, -1); }
+  .ornamento { position: absolute; top: -22px; left: 50%; translate: -50% 0; width: 140px; height: auto; }
+  .flor-cartao { position: absolute; pointer-events: none; z-index: 3; }
+  .flor-cartao.f1 { top: -78px; left: -22px; width: 92px; --g: 4deg; --v: 7s; transform-origin: 80% 100%; }
+  .flor-cartao.f2 { bottom: -70px; right: -18px; width: 74px; --g: 3deg; --v: 6s; --d: -2s; }
+  .flor-cartao { height: auto; }
+  .cartao h2 { margin: 0; text-align: center; font-family: var(--fonte-titulo); font-weight: 600; font-size: 1.02rem; letter-spacing: .18em; text-transform: uppercase; color: var(--tinta); }
+  .cartao .sub { margin: 4px 0 22px; text-align: center; font-family: var(--fonte-display); font-style: italic; font-size: 1.15rem; color: var(--tinta-suave); }
+
+  form { display: grid; gap: 16px; }
+  .campo { display: grid; gap: 4px; min-width: 0; }
+  .campo label { font-family: var(--fonte-titulo); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); }
+  .linha2 { display: grid; grid-template-columns: minmax(0, 1fr) 86px; gap: 14px; }
   input, select {
-    width: 100%; min-height: 48px; padding: 10px 12px; border-radius: 10px;
-    border: 1px solid rgba(226, 190, 106, .4); background: rgba(5, 12, 8, .55); color: var(--creme);
-    font: inherit; font-size: 1rem; transition: border-color .2s, box-shadow .2s;
+    width: 100%; min-height: 46px; padding: 10px 2px; border: 0; border-bottom: 1.5px solid var(--linha); border-radius: 0;
+    background: transparent; color: var(--tinta); font: inherit; font-size: 1.05rem; transition: border-color .2s;
   }
-  select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ouro) 50%), linear-gradient(135deg, var(--ouro) 50%, transparent 50%); background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px; background-size: 5px 5px; background-repeat: no-repeat; }
-  select option { color: #1C1508; }
-  input::placeholder { color: rgba(251, 241, 220, .45); }
-  input:focus, select:focus { outline: none; border-color: var(--ouro); box-shadow: 0 0 0 3px rgba(226, 190, 106, .2), 0 0 18px rgba(246, 219, 148, .2); }
-  input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--erro); background: rgba(80, 20, 10, .35); }
-  .aceite { display: flex; gap: 10px; align-items: flex-start; font-size: .84rem; cursor: pointer; opacity: .95; }
-  .aceite input { width: 20px; min-height: 0; height: 20px; margin: 2px 0 0; accent-color: var(--ouro); flex: none; }
+  select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ouro) 50%), linear-gradient(135deg, var(--ouro) 50%, transparent 50%); background-position: calc(100% - 12px) 21px, calc(100% - 7px) 21px; background-size: 5px 5px; background-repeat: no-repeat; }
+  input::placeholder { color: #B5AE9C; }
+  input:focus, select:focus { outline: none; border-color: var(--ceu); }
+  .com-arroba { position: relative; }
+  .com-arroba span { position: absolute; left: 2px; bottom: 11px; color: var(--ouro); font-size: 1.05rem; }
+  .com-arroba input { padding-left: 20px; }
+  input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--erro); }
+  .aceite { display: flex; gap: 10px; align-items: flex-start; font-size: .84rem; color: var(--tinta-suave); cursor: pointer; }
+  .aceite input { width: 18px; min-height: 0; height: 18px; margin: 3px 0 0; accent-color: var(--ceu); flex: none; }
   .isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-  .erro { margin: 0; padding: 10px 12px; border-radius: 10px; background: rgba(80, 20, 10, .5); color: var(--erro); font-weight: 700; font-size: .9rem; }
+  .erro { margin: 0; padding: 10px 12px; border-radius: 8px; background: #FBE9E7; color: var(--erro); font-weight: 600; font-size: .9rem; }
   .botao {
-    position: relative; overflow: hidden; width: 100%; min-height: 54px; border: 0; border-radius: 999px; cursor: pointer;
-    background: linear-gradient(135deg, var(--ouro-claro), var(--ouro) 45%, var(--ouro-escuro));
-    color: var(--tinta); font-family: var(--fonte-titulo); font-weight: 600; font-size: 1.02rem; letter-spacing: .08em; text-transform: uppercase;
-    box-shadow: 0 10px 28px rgba(226, 190, 106, .35), inset 0 1px 0 rgba(255, 255, 255, .6);
-    text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 10px 20px;
-    transition: transform .15s;
+    position: relative; overflow: hidden; width: 100%; min-height: 54px; border: 0; border-radius: 999px; cursor: pointer; margin-top: 4px;
+    background: var(--tinta); color: var(--papel); font-family: var(--fonte-titulo); font-weight: 600; font-size: .95rem; letter-spacing: .12em; text-transform: uppercase;
+    box-shadow: 0 12px 26px rgba(34, 48, 74, .25); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 10px 20px;
+    transition: transform .15s, background-color .2s;
   }
+  .botao:hover { background: var(--ceu); }
   .botao:active { transform: scale(.98); }
-  .botao::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .7) 50%, transparent 65%); transform: translateX(-130%); animation: brilho 3.2s ease-in-out infinite; }
+  .botao::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(232, 200, 119, .55) 50%, transparent 65%); transform: translateX(-130%); animation: brilho 3.6s ease-in-out infinite; }
   @keyframes brilho { 60%, 100% { transform: translateX(130%); } }
-  .botao:disabled { opacity: .75; cursor: wait; }
-  .nota { margin: 0; font-size: .8rem; text-align: center; opacity: .8; }
+  .botao:disabled { opacity: .7; cursor: wait; }
+  .nota { margin: 0; font-size: .8rem; text-align: center; color: var(--tinta-suave); }
+  .ok { display: grid; gap: 12px; text-align: center; justify-items: center; padding-block: 10px; }
+  .ok img { width: 110px; height: auto; }
+  .ok h3 { margin: 0; font-family: var(--fonte-display); font-style: italic; font-weight: 600; font-size: 1.8rem; line-height: 1.1; }
+  .ok p { margin: 0; color: var(--tinta-suave); }
 
-  .ok { display: grid; gap: 14px; text-align: center; justify-items: center; padding-block: 10px; }
-  .ok .estrelas { color: var(--ouro); letter-spacing: .5em; font-size: 1.1rem; }
-  .ok h2 { margin: 0; font-family: var(--fonte-titulo); font-weight: 600; color: var(--ouro-claro); font-size: 1.5rem; }
-  .ok p { margin: 0; }
-
-  .rodape { text-align: center; font-size: .78rem; opacity: .7; padding: 26px 16px 34px; }
+  .rodape { position: relative; z-index: 2; text-align: center; font-size: .78rem; color: var(--tinta-suave); padding: 40px 16px 34px; }
   .rodape a { color: inherit; }
 
-  @media (max-width: 420px) { .botao { font-size: .9rem; letter-spacing: .04em; padding-inline: 14px; } }
-  @media (min-width: 900px) {
-    .pagina { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 100vh; }
-    .capa { position: sticky; top: 0; height: 100vh; min-height: 0; }
-    .capa::after { background: linear-gradient(to right, rgba(11, 20, 14, 0) 70%, var(--noite) 100%), linear-gradient(to bottom, rgba(11, 20, 14, .5) 0, transparent 20%, transparent 60%, rgba(11, 20, 14, .8) 100%); }
-    .capa-texto { display: none; }
-    .chamada { margin-bottom: 26px; }
-    .lado { display: grid; align-content: center; padding-block: 40px; }
-    .cadastro { padding-block: 30px; background: none; }
+  @media (max-width: 400px) { .botao { font-size: .82rem; letter-spacing: .06em; } }
+  @media (min-width: 960px) {
+    .pagina { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; max-width: 1180px; margin: 0 auto; }
+    .topo { grid-column: 1 / -1; }
+    .abertura { position: sticky; top: 0; padding-top: 20px; }
+    .lado { padding-top: 40px; }
+    .cena { width: min(52%, 300px); }
+    .trilha { margin-top: 0; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .capa-foto, .capa-texto h1, .descer span, .botao::after { animation: none; }
-    .vagalumes { display: none; }
+    .monograma, .balanca, .chamar span, .botao::after { animation: none; }
+    .petalas { display: none; }
   }
 </style>
 </head>
 <body>
 
-<canvas class="vagalumes" aria-hidden="true"></canvas>
+<canvas class="petalas" aria-hidden="true"></canvas>
 
 <div class="pagina">
-  <header class="capa">
-    <div class="capa-foto" aria-hidden="true"></div>
-    <div class="topo">
-      <a class="marcas" href="/eventos/era-uma-vez/"><img src="/assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593"><span aria-hidden="true">×</span><img class="rupel" src="/assets/img/rupel-branco.png" alt="Rupel Entertainment" width="600" height="158"></a>
-      <span class="selo-pre">Pré-venda</span>
-    </div>
-    <div class="capa-texto">
-      <a class="descer" href="#cadastro">Fazer meu cadastro <span aria-hidden="true">↓</span></a>
-    </div>
+  <header class="topo">
+    <a class="marcas" href="/eventos/era-uma-vez/">
+      <img class="cit" src="/assets/img/logo-branco.png" alt="CIT Agency" width="720" height="593">
+      <span aria-hidden="true">×</span>
+      <img class="rupel" src="/assets/img/rupel-branco.png" alt="Rupel Entertainment" width="600" height="158">
+    </a>
+    <span class="selo-pre">Pré-venda</span>
   </header>
 
+  <section class="abertura" aria-labelledby="titulo">
+    <div class="cena" aria-hidden="true">
+      <img class="planta balanca p-trepa-e" src="/eventos/era-uma-vez/img/jardim/trepadeira-a.webp" alt="" width="328" height="1067">
+      <img class="planta balanca p-trepa-d" src="/eventos/era-uma-vez/img/jardim/trepadeira-c.webp" alt="" width="360" height="1100">
+      <img class="planta balanca p-margarida" src="/eventos/era-uma-vez/img/jardim/margaridas-a.webp" alt="" width="422" height="544">
+      <img class="planta balanca p-espiral" src="/eventos/era-uma-vez/img/jardim/espiral-a.webp" alt="" width="353" height="569">
+      <img class="monograma" src="/eventos/era-uma-vez/img/jardim/monograma-euv.webp" alt="" width="726" height="1300">
+      <img class="planta balanca p-amarela" src="/eventos/era-uma-vez/img/jardim/flor-amarela.webp" alt="" width="510" height="748">
+      <img class="planta balanca p-hibisco" src="/eventos/era-uma-vez/img/jardim/hibisco.webp" alt="" width="398" height="563">
+    </div>
+    <div class="titulos">
+      <p class="linha-data">16 de janeiro · Guarapari/ES</p>
+      <h1 id="titulo">Entre primeiro no Jardim Onírico</h1>
+      <p>Os primeiros ingressos e as novidades saem no grupo de pré-venda, antes de todo mundo.</p>
+      <a class="chamar" href="#cadastro">Fazer meu cadastro <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
   <div class="lado">
+    <div class="trilha">
+      <p>✦ Dê o play e entre no clima ✦</p>
+      <iframe title="Música do Era Uma Vez no Spotify" src="https://open.spotify.com/embed/track/3HGwI9qwq5XqBDeZBV3zti?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
     <main class="cadastro" id="cadastro">
-      <div class="chamada">
-        <p class="data">Pré-venda · 16 de janeiro · Guarapari/ES</p>
-        <h1>Entre primeiro no Jardim Onírico</h1>
-        <p class="sub">Os primeiros ingressos e as novidades saem no grupo de pré-venda, antes de todo mundo.</p>
-      </div>
-      <div class="trilha">
-        <p class="trilha-titulo">✦ Dê o play e entre no clima ✦</p>
-        <iframe title="Música do Era Uma Vez no Spotify" src="https://open.spotify.com/embed/track/3HGwI9qwq5XqBDeZBV3zti?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <section class="moldura" aria-labelledby="titulo-form">
-        <h2 class="moldura-titulo" id="titulo-form">Lista da pré-venda</h2>
-        <p class="moldura-sub">Leva menos de um minuto.</p>
+      <section class="cartao" aria-labelledby="titulo-form">
+        <img class="ornamento" src="/eventos/era-uma-vez/img/jardim/ornamento-ouro.webp" alt="" width="231" height="73">
+        <img class="canto c1" src="/eventos/era-uma-vez/img/jardim/canto-ouro.webp" alt="" width="129" height="169">
+        <img class="canto c2" src="/eventos/era-uma-vez/img/jardim/canto-ouro.webp" alt="" width="129" height="169">
+        <img class="canto c3" src="/eventos/era-uma-vez/img/jardim/canto-ouro.webp" alt="" width="129" height="169">
+        <img class="canto c4" src="/eventos/era-uma-vez/img/jardim/canto-ouro.webp" alt="" width="129" height="169">
+        <img class="flor-cartao balanca f1" src="/eventos/era-uma-vez/img/jardim/margaridas-e.webp" alt="" width="565" height="674">
+        <img class="flor-cartao balanca f2" src="/eventos/era-uma-vez/img/jardim/galho-c.webp" alt="" width="469" height="745">
+
+        <h2 id="titulo-form">Lista da pré-venda</h2>
+        <p class="sub">leva menos de um minuto</p>
         <form id="form" novalidate>
           <div class="campo">
             <label for="nome">Nome completo</label>
             <input id="nome" name="nome" type="text" autocomplete="name" required>
           </div>
-          <div class="linha">
+          <div class="linha2">
             <div class="campo">
               <label for="cidade">Cidade</label>
               <input id="cidade" name="cidade" type="text" autocomplete="address-level2" required>
@@ -236,6 +264,13 @@
             <label for="email">E-mail</label>
             <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
           </div>
+          <div class="campo">
+            <label for="instagram">Instagram</label>
+            <div class="com-arroba">
+              <span aria-hidden="true">@</span>
+              <input id="instagram" name="instagram" type="text" autocapitalize="none" autocomplete="off" spellcheck="false" placeholder="seuperfil" required pattern="@?[A-Za-z0-9._]{1,30}">
+            </div>
+          </div>
           <input class="isca" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label class="aceite">
             <input id="aceite" type="checkbox" required>
@@ -247,8 +282,8 @@
         </form>
 
         <div class="ok" id="ok" hidden>
-          <span class="estrelas" aria-hidden="true">✦ ✦ ✦</span>
-          <h2>Seu lugar no jardim está guardado</h2>
+          <img src="/eventos/era-uma-vez/img/jardim/buque-b.webp" alt="" width="178" height="153">
+          <h3>Seu lugar no jardim está guardado</h3>
           <p>Abrindo o grupo de pré-venda no WhatsApp…</p>
           <a class="botao" id="ir-grupo" href="#">Entrar no grupo agora</a>
         </div>
@@ -262,40 +297,32 @@
 </div>
 
 <script>
-  // Vaga-lumes que seguem o dedo/mouse, brilho ao tocar e a foto que se aproxima ao rolar
+  // Pétalas caindo (coral, amarelo, branco) e plantas que acompanham a rolagem
   (function () {
+    addEventListener('scroll', function () { document.documentElement.style.setProperty('--rolar', Math.min(scrollY / innerHeight, 1.5).toFixed(3)); }, { passive: true });
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var c = document.querySelector('.vagalumes'), x = c.getContext('2d');
+    var c = document.querySelector('.petalas'), x = c.getContext('2d');
     var W, H, dpr = Math.min(devicePixelRatio || 1, 2);
     function medir() { W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
     medir(); addEventListener('resize', medir);
-    var b = document.createElement('canvas'); b.width = b.height = 64;
-    var g = b.getContext('2d'), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-    gr.addColorStop(0, 'rgba(255,248,200,1)'); gr.addColorStop(.18, 'rgba(255,226,120,.9)'); gr.addColorStop(.45, 'rgba(240,190,70,.25)'); gr.addColorStop(1, 'rgba(240,190,70,0)');
-    g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+    var CORES = ['#F4A08F', '#F7C6B8', '#F6D36B', '#FFFFFF', '#F0715A'];
     var r = function (a, z) { return a + Math.random() * (z - a); };
-    var f = [], s = [], p = { x: -999, y: -999, on: false };
-    for (var i = 0; i < (W < 600 ? 24 : 40); i++) f.push({ x: r(0, W), y: r(0, H), vx: r(-.3, .3), vy: r(-.3, .3), t: r(0, 6.28), s: r(9, 20), k: r(.6, 1.6) });
-    addEventListener('pointermove', function (e) { p.x = e.clientX; p.y = e.clientY; p.on = true; }, { passive: true });
-    addEventListener('pointerdown', function (e) { for (var i = 0; i < 14; i++) { var a = Math.random() * 6.28, v = r(1, 3.2); s.push({ x: e.clientX, y: e.clientY, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1, s: r(6, 12), l: 1 }); } }, { passive: true });
-    addEventListener('scroll', function () { document.documentElement.style.setProperty('--rolar', Math.min(scrollY / innerHeight, 1).toFixed(3)); }, { passive: true });
+    function nova(espalha) { return { x: r(-20, W + 20), y: espalha ? r(-H, H) : r(-60, -10), vy: r(.3, .8), o: r(0, 6.28), a: r(.3, 1), rot: r(0, 6.28), vr: r(-.02, .02), w: r(5, 10), cor: CORES[Math.floor(r(0, CORES.length))] }; }
+    var ps = []; for (var i = 0; i < (W < 600 ? 12 : 20); i++) ps.push(nova(true));
     (function loop() {
-      x.clearRect(0, 0, W, H); x.globalCompositeOperation = 'lighter';
-      f.forEach(function (q) {
-        q.t += .02 * q.k; q.vx += Math.cos(q.t * .7) * .01; q.vy += Math.sin(q.t * .9) * .01;
-        if (p.on) { var dx = p.x - q.x, dy = p.y - q.y, d = Math.hypot(dx, dy); if (d < 220 && d > 30) { q.vx += dx / d * .06; q.vy += dy / d * .06; } }
-        q.vx *= .97; q.vy *= .97; q.x += q.vx; q.y += q.vy;
-        if (q.x < -30) q.x = W + 30; if (q.x > W + 30) q.x = -30; if (q.y < -30) q.y = H + 30; if (q.y > H + 30) q.y = -30;
-        x.globalAlpha = .35 + .65 * Math.pow(Math.sin(q.t) * .5 + .5, 2);
-        x.drawImage(b, q.x - q.s, q.y - q.s, q.s * 2, q.s * 2);
+      x.clearRect(0, 0, W, H);
+      ps.forEach(function (p, i) {
+        p.o += .012; p.y += p.vy; p.x += Math.sin(p.o) * p.a; p.rot += p.vr;
+        if (p.y > H + 30) ps[i] = nova(false);
+        x.save(); x.translate(p.x, p.y); x.rotate(p.rot);
+        x.globalAlpha = .85; x.fillStyle = p.cor; x.strokeStyle = 'rgba(184,137,46,.35)'; x.lineWidth = .6;
+        x.beginPath(); x.ellipse(0, 0, p.w, p.w * .55, 0, 0, 6.28); x.fill(); x.stroke();
+        x.restore();
       });
-      for (var k = s.length - 1; k >= 0; k--) { var e = s[k]; e.x += e.vx; e.y += e.vy; e.vy += .04; e.l -= .02; if (e.l <= 0) { s.splice(k, 1); continue; } x.globalAlpha = e.l; x.drawImage(b, e.x - e.s, e.y - e.s, e.s * 2, e.s * 2); }
-      x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
       requestAnimationFrame(loop);
     })();
   })();
-</script>
-<script>
+
   // Grupo de pré-venda e nome da aba na planilha de listas
   var GRUPO = 'https://chat.whatsapp.com/Eoul549lNGqFhRmU2mcXSq';
   var LISTA = 'Pré-venda Era Uma Vez';
@@ -317,6 +344,9 @@
         : d.length > 6 ? d.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3')
         : d.length > 2 ? d.replace(/(\d{2})(\d*)/, '($1) $2') : d;
     });
+    // O @ já aparece fixo no campo; tira o que a pessoa digitar a mais
+    var insta = document.getElementById('instagram');
+    insta.addEventListener('input', function () { insta.value = insta.value.replace(/^@+/, '').replace(/\s/g, ''); });
 
     var form = document.getElementById('form');
     var erro = document.getElementById('erro');
@@ -339,6 +369,7 @@
         erro.textContent = c.id === 'aceite' ? 'Marque a autorização para concluir o cadastro.'
           : c.id === 'whatsapp' ? 'Confira o WhatsApp com DDD, por exemplo (27) 99999-9999.'
           : c.id === 'email' ? 'Confira o e-mail: ele precisa ter @ e domínio, como voce@email.com.'
+          : c.id === 'instagram' ? 'Confira seu Instagram: só letras, números, ponto e _ (ex.: seuperfil).'
           : 'Preencha o campo "' + form.querySelector('label[for="' + c.id + '"]').textContent + '".';
         erro.hidden = false;
         c.focus();
@@ -353,6 +384,7 @@
       corpo.append('estado', form.estado.value);
       corpo.append('whatsapp', digitos);
       corpo.append('email', form.email.value.trim());
+      corpo.append('instagram', '@' + insta.value.trim());
       corpo.append('autorizacao', 'Sim');
 
       enviar.disabled = true;
